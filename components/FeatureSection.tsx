@@ -23,7 +23,7 @@ export default function FeatureSection({ data }: { data: FeatureSectionData }) {
 
   const caption = (
     <Reveal direction={left ? "right" : "left"} delay={0.1}>
-      <p className="max-w-sm text-base leading-relaxed text-white/90 md:text-lg">
+      <p className="max-w-sm text-base leading-6 text-white/90">
         {data.caption}
       </p>
     </Reveal>
@@ -33,7 +33,7 @@ export default function FeatureSection({ data }: { data: FeatureSectionData }) {
     <section id={data.id} className="bg-panel px-6 py-24 md:px-10 md:py-32">
       <div className="mx-auto max-w-content">
         <Reveal className="flex justify-center">
-          <h2 className="text-left font-display text-2xl font-semibold tracking-tight md:text-4xl">
+          <h2 className="text-left font-display text-2xl font-semibold leading-9 tracking-[-0.75px] md:text-[32px]">
             {data.heading}
           </h2>
         </Reveal>

@@ -8,10 +8,10 @@ export default function Solution() {
     <Section id="solution" className="bg-panel py-24 md:py-28">
       <Reveal>
         <div className="mx-auto max-w-3xl text-left">
-          <p className="mb-6 text-center text-lg font-bold uppercase leading-4 tracking-[2.4px] text-accent md:text-2xl">
+          <p className="mb-6 text-center font-display text-4xl font-bold leading-none tracking-[-1.5px] text-white md:text-[60px] md:leading-[60px]">
             {solution.heading}
           </p>
-          <p className="font-display text-2xl font-semibold leading-9 tracking-[-0.9px] md:text-[30px] md:leading-10">
+          <p className="font-display text-2xl font-normal leading-8 tracking-normal md:text-[24px] md:leading-8">
             {solution.body}
           </p>
         </div>

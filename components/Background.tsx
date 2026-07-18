@@ -19,7 +19,7 @@ export default function Background() {
       />
       <div className="relative mx-auto max-w-[768px] text-left">
         <Reveal>
-          <h2 className="text-center font-display text-4xl font-semibold leading-none tracking-[-1.5px] md:text-[60px] md:leading-[60px]">
+          <h2 className="text-center font-display text-4xl font-bold leading-none tracking-[-1.5px] md:text-[60px] md:leading-[60px]">
             {background.heading}
           </h2>
           <p className="mx-auto mt-5 max-w-[672px] text-lg font-normal leading-7 text-white/90 md:text-2xl md:leading-8">

@@ -123,7 +123,7 @@ export const persona = {
     ],
   },
   success: {
-    title: "What success looks like for them",
+    title: "What success looks like for him",
     // (verbatim)
     body: "All tasks are completed on time, with no delays, safety issues, or unnecessary injuries.",
   },

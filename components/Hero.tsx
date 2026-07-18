@@ -55,10 +55,10 @@ export default function Hero() {
       >
         {hero.projectMeta.map((item) => (
           <div key={item.label}>
-            <p className="font-display text-sm italic leading-5 text-white/90">
+            <p className="font-display text-[20px] font-medium italic leading-5 text-white/90">
               {item.label}
             </p>
-            <p className="mt-1 text-sm italic leading-5 text-white/70 md:whitespace-nowrap">
+            <p className="mt-1 text-[20px] italic leading-[22px] text-white/70 md:whitespace-nowrap">
               {item.value}
             </p>
           </div>
@@ -69,7 +69,7 @@ export default function Hero() {
       <div className="relative z-10 mx-auto flex w-full max-w-content flex-1 flex-col justify-center px-6 py-16 md:px-10">
         <motion.h1
           {...fade(0.1)}
-          className="w-full max-w-[875px] text-left font-display text-5xl font-extrabold leading-[0.98] tracking-tight text-white sm:text-7xl md:text-[96px] md:leading-[96px] md:tracking-[-2.4px]"
+          className="w-full max-w-[893px] text-left font-display text-5xl font-extrabold leading-[0.98] tracking-tight text-white sm:text-7xl md:text-[100px] md:leading-[96px] md:tracking-[-2.4px]"
         >
           {hero.headlineLine1}
           <br />
@@ -80,18 +80,18 @@ export default function Hero() {
           {...fade(0.25)}
           className="mt-6 w-full md:max-w-[864px] md:pl-[323px]"
         >
-          <div className="md:w-[534px] md:max-w-xl">
-            <p className="text-lg font-normal text-white/90 md:text-xl md:leading-7">
+          <div className="md:w-[535px] md:max-w-xl">
+            <p className="text-lg font-normal text-white/90 md:text-[24px] md:leading-8">
               {hero.kicker}
             </p>
             <div className="mt-6">
-              <p className="font-display text-sm italic text-white/80 md:text-base md:font-semibold md:leading-5">
+              <p className="font-display text-sm italic text-white/80 md:text-[20px] md:font-medium md:leading-5">
                 {hero.team.label}
               </p>
               {hero.team.members.map((member) => (
                 <p
                   key={member}
-                  className="text-sm italic leading-5 text-white/70"
+                  className="text-sm italic leading-5 text-white/70 md:text-[16px]"
                 >
                   {member}
                 </p>

@@ -162,7 +162,7 @@ export default function BadgeIterations() {
           <Reveal key={decision.title} className="border-t border-line py-12">
             <div className="grid items-center gap-10 md:grid-cols-[1fr_1fr] md:gap-14">
               <div>
-                <h3 className="font-display text-2xl font-bold leading-8 tracking-[-0.6px]">
+                <h3 className="font-display text-2xl font-semibold leading-8 tracking-[-0.6px]">
                   {decision.title}
                 </h3>
                 <p className="mt-3 max-w-md text-base leading-6 text-muted">{decision.body}</p>
