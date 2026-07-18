@@ -79,8 +79,8 @@ function BadgeWorkflowOverview() {
   ];
 
   return (
-    <div className="overflow-x-auto rounded-card border border-line bg-surface p-6 md:flex md:h-[198px] md:items-center md:justify-center md:p-[49px]">
-      <div className="mx-auto flex min-w-[629px] flex-col gap-5" role="img" aria-label="Incident badge design progression">
+    <div className="flex justify-center overflow-x-auto py-6">
+      <div className="flex min-w-[629px] flex-col gap-5" role="img" aria-label="Incident badge design progression">
         {rows.map((row) => (
           <div key={row.count} className="flex h-6 items-center gap-[14px]">
             <OpenBadge tone={row.openTone}>{`${row.count} Open`}</OpenBadge>

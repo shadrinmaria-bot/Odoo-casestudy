@@ -21,10 +21,10 @@ export default function FeatureSection({ data }: { data: FeatureSectionData }) {
           <Reveal direction={left ? "left" : "right"} className={left ? "" : "md:order-2"}>
             <VideoAsset
               src={data.video.src}
-              width={1}
-              height={1}
+              width={16}
+              height={9}
               label={`${data.heading} demo`}
-              className="aspect-square w-full bg-[#D9D9D9] object-cover"
+              className="w-full bg-panel object-contain"
             />
           </Reveal>
           <Reveal direction={left ? "right" : "left"} className={left ? "" : "md:order-1"}>
