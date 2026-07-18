@@ -8,11 +8,11 @@ export default function Problem() {
   return (
     <Section id="problem" className="bg-[#101014] py-24 md:py-32">
       <Reveal>
-        <div className="mx-auto max-w-2xl text-left">
-          <h2 className="font-display text-3xl font-semibold tracking-tight md:text-5xl">
+        <div className="mx-auto max-w-[768px] text-left">
+          <h2 className="text-center font-display text-4xl font-semibold leading-none tracking-[-1.5px] md:text-[60px] md:leading-[60px]">
             {problem.heading}
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-white/90 md:text-xl">
+          <p className="mt-6 text-xl font-normal leading-8 text-white/90 md:text-[30px] md:leading-9">
             {problem.caption}
           </p>
         </div>

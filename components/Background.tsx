@@ -5,14 +5,14 @@ export default function Background() {
   return (
     <section
       id="background"
-      className="bg-black px-6 py-24 md:px-10 md:py-32"
+      className="bg-black px-6 py-24 md:px-10 md:py-40"
     >
-      <div className="mx-auto max-w-3xl text-left">
+      <div className="mx-auto max-w-[768px] text-left">
         <Reveal>
-          <h2 className="font-display text-3xl font-semibold tracking-tight md:text-5xl">
+          <h2 className="text-center font-display text-4xl font-semibold leading-none tracking-[-1.5px] md:text-[60px] md:leading-[60px]">
             {background.heading}
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/90 md:text-xl">
+          <p className="mx-auto mt-5 max-w-[672px] text-lg font-normal leading-7 text-white/90 md:text-2xl md:leading-8">
             {background.body}
           </p>
         </Reveal>

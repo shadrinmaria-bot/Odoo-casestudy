@@ -69,7 +69,7 @@ export default function Hero() {
       <div className="relative z-10 mx-auto flex w-full max-w-content flex-1 flex-col justify-center px-6 py-16 md:px-10">
         <motion.h1
           {...fade(0.1)}
-          className="w-full text-center font-display text-5xl font-extrabold leading-[0.98] tracking-tight text-white sm:text-7xl md:text-[96px] md:leading-[96px] md:tracking-[-2.4px]"
+          className="w-full max-w-[875px] text-left font-display text-5xl font-extrabold leading-[0.98] tracking-tight text-white sm:text-7xl md:text-[96px] md:leading-[96px] md:tracking-[-2.4px]"
         >
           {hero.headlineLine1}
           <br />
@@ -78,10 +78,10 @@ export default function Hero() {
 
         <motion.div
           {...fade(0.25)}
-          className="mt-6 w-full md:max-w-none md:pl-[264px]"
+          className="mt-6 w-full md:max-w-[864px] md:pl-[323px]"
         >
-          <div className="md:max-w-xl">
-            <p className="text-lg text-white/90 md:text-xl md:leading-7">
+          <div className="md:w-[534px] md:max-w-xl">
+            <p className="text-lg font-normal text-white/90 md:text-xl md:leading-7">
               {hero.kicker}
             </p>
             <div className="mt-6">
