@@ -31,13 +31,20 @@ export default function Arrow({
       fill="none"
       className={`text-accent ${className}`}
     >
-      <path d={p.stem} stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+      <path
+        d={p.stem}
+        stroke="currentColor"
+        strokeWidth="3"
+        strokeLinecap="round"
+        vectorEffect="non-scaling-stroke"
+      />
       <path
         d={p.head}
         stroke="currentColor"
         strokeWidth="3"
         strokeLinecap="round"
         strokeLinejoin="round"
+        vectorEffect="non-scaling-stroke"
       />
     </svg>
   );

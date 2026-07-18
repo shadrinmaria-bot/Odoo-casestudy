@@ -33,10 +33,9 @@ function OpenBadge({ children, tone }: { children: string | number; tone: "red" 
   );
 }
 
-function WorkflowArrow({ long = false }: { long?: boolean }) {
-  return (
-    <Arrow direction="right" width={long ? 52 : 30} height={20} className="shrink-0" />
-  );
+function WorkflowArrow() {
+  // Same arrow shape/stroke as everywhere else, sized to the badge row.
+  return <Arrow direction="right" width={36} height={24} className="shrink-0" />;
 }
 
 function OpenedBadge({ count, tone }: { count: 0 | 1 | 2; tone: "red" | "amber" | "grey" }) {
@@ -77,7 +76,7 @@ function BadgeWorkflowOverview() {
             <IncidentBadge tone={row.incidentTone}>{`${row.count} Incident`}</IncidentBadge>
             {row.count === 0 ? (
               <>
-                <WorkflowArrow long />
+                <WorkflowArrow />
                 <span aria-hidden className="font-awesome-solid text-sm text-[#70747C]">{`\uF071`}</span>
                 <span className="whitespace-nowrap text-[10px] text-muted">(on hover)</span>
               </>
