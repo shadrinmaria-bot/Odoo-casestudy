@@ -51,14 +51,14 @@ export default function Hero() {
       {/* Meta row across the top */}
       <motion.div
         {...fade(0)}
-        className="relative z-10 mx-auto grid w-full max-w-[1021px] grid-cols-2 gap-x-8 gap-y-5 px-6 pt-24 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_261px_122px] md:gap-x-10 md:px-10 md:pt-8"
+        className="relative z-10 mx-auto grid w-full max-w-[1021px] grid-cols-2 gap-x-8 gap-y-5 px-6 pt-24 md:h-24 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_261px_122px] md:gap-x-10 md:gap-y-0 md:px-10 md:pt-8"
       >
         {hero.projectMeta.map((item) => (
           <div key={item.label}>
-            <p className="font-display text-sm italic text-white/90">
+            <p className="font-display text-sm italic leading-5 text-white/90">
               {item.label}
             </p>
-            <p className="mt-1 text-sm italic text-white/70 md:whitespace-nowrap">
+            <p className="mt-1 text-sm italic leading-5 text-white/70 md:whitespace-nowrap">
               {item.value}
             </p>
           </div>
@@ -69,27 +69,38 @@ export default function Hero() {
       <div className="relative z-10 mx-auto flex w-full max-w-content flex-1 flex-col justify-center px-6 py-16 md:px-10">
         <motion.h1
           {...fade(0.1)}
-          className="w-full text-center font-display text-5xl font-extrabold leading-none tracking-tight text-white sm:text-7xl md:text-8xl"
+          className="w-full text-center font-display text-5xl font-extrabold leading-[0.98] tracking-tight text-white sm:text-7xl md:text-[96px] md:leading-[96px] md:tracking-[-2.4px]"
         >
           {hero.headlineLine1}
           <br />
           {hero.headlineLine2}
         </motion.h1>
 
-        <motion.div {...fade(0.25)} className="mt-6 md:ml-[22%] md:max-w-xl">
-          <p className="text-lg text-white/90 md:text-xl">{hero.kicker}</p>
-          <div className="mt-6">
-            <p className="font-display text-base font-semibold italic leading-5 text-white/80">
-              {hero.team.label}
+        <motion.div
+          {...fade(0.25)}
+          className="mt-6 w-full md:max-w-none md:pl-[264px]"
+        >
+          <div className="md:max-w-xl">
+            <p className="text-lg text-white/90 md:text-xl md:leading-7">
+              {hero.kicker}
             </p>
-            {hero.team.members.map((member) => (
-              <p key={member} className="text-sm italic text-white/70">
-                {member}
+            <div className="mt-6">
+              <p className="font-display text-sm italic text-white/80 md:text-base md:font-semibold md:leading-5">
+                {hero.team.label}
               </p>
-            ))}
+              {hero.team.members.map((member) => (
+                <p
+                  key={member}
+                  className="text-sm italic leading-5 text-white/70"
+                >
+                  {member}
+                </p>
+              ))}
+            </div>
           </div>
         </motion.div>
 
+        <div aria-hidden className="hidden md:block md:h-[68px] md:shrink-0" />
       </div>
     </section>
   );
