@@ -143,7 +143,7 @@ export const featureSections: FeatureSectionData[] = [
     heading: "Incident Reporting",
     videoSide: "left",
     caption: "One click logs the incident and instantly notifies EHS staff.",
-    video: { src: "/videos/incident-reporting.mp4", width: 16, height: 10 },
+    video: { src: "/videos/safety-analytics.mp4", width: 16, height: 10 },
   },
   {
     id: "incident-tracking",
@@ -157,7 +157,7 @@ export const featureSections: FeatureSectionData[] = [
     heading: "Safety Analytics",
     videoSide: "left",
     caption: "Visualize incident trends to catch patterns before they repeat.",
-    video: { src: "/videos/safety-analytics.mp4", width: 16, height: 10 },
+    video: { src: "/videos/incident-reporting.mp4", width: 16, height: 10 },
   },
 ];
 
