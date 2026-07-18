@@ -1,50 +1,62 @@
 import Asset from "@/components/Asset";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
-import SectionHeading from "@/components/SectionHeading";
 import { persona } from "@/lib/content";
-
-function List({ title, items }: { title: string; items: string[] }) {
-  return (
-    <div className="h-full rounded-card border border-line bg-surface p-8 shadow-sm">
-      <h3 className="font-display text-lg font-bold tracking-tight">{title}</h3>
-      <ul className="mt-4 space-y-3">
-        {items.map((item) => (
-          <li key={item} className="flex gap-3 text-sm leading-relaxed text-muted">
-            <span aria-hidden className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-            {item}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
 
 export default function Persona() {
   return (
     <Section id="persona">
-      <SectionHeading title={persona.heading} />
-      <div className="mt-12 grid items-center gap-6 md:grid-cols-[1fr_1.4fr]">
+      <Reveal>
+        <h2 className="font-display text-4xl font-semibold tracking-tight md:text-6xl">
+          {persona.heading}
+        </h2>
+        <p className="mt-4 max-w-xl text-base leading-relaxed text-white/90 md:text-lg">
+          {persona.subtitle}
+        </p>
+      </Reveal>
+
+      <div className="mt-12 grid gap-10 md:grid-cols-2 md:gap-16">
+        {/* Left: portrait + quote */}
         <Reveal direction="left">
-          <Asset {...persona.image} className="border border-line shadow-lg" />
-        </Reveal>
-        <Reveal direction="right" delay={0.1}>
-          <figure className="flex h-full flex-col justify-center rounded-card border border-accent/25 bg-accent-soft p-8 md:p-12">
-            <blockquote className="font-display text-xl font-semibold leading-snug tracking-tight text-white md:text-3xl">
+          <div className="max-w-sm">
+            <Asset {...persona.image} className="border border-line shadow-lg" />
+            <blockquote className="mt-6 max-w-xs text-sm italic leading-relaxed text-muted">
               &ldquo;{persona.quote}&rdquo;
             </blockquote>
-            <figcaption className="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
-              {persona.personaName}
-            </figcaption>
-          </figure>
+          </div>
         </Reveal>
-      </div>
-      <div className="mt-8 grid gap-6 md:grid-cols-2">
-        <Reveal direction="left">
-          <List {...persona.complexity} />
-        </Reveal>
-        <Reveal direction="right" delay={0.12}>
-          <List {...persona.success} />
+
+        {/* Right: complexity then success */}
+        <Reveal direction="right" delay={0.1}>
+          <div className="space-y-12">
+            <div>
+              <h3 className="font-display text-2xl font-semibold tracking-tight md:text-3xl">
+                {persona.complexity.title}
+              </h3>
+              <ul className="mt-5 space-y-3">
+                {persona.complexity.items.map((item) => (
+                  <li
+                    key={item}
+                    className="flex gap-3 text-base leading-relaxed text-white/90"
+                  >
+                    <span
+                      aria-hidden
+                      className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
+                    />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-display text-2xl font-semibold tracking-tight md:text-3xl">
+                {persona.success.title}
+              </h3>
+              <p className="mt-4 max-w-md text-base leading-relaxed text-white/90 md:text-lg">
+                {persona.success.body}
+              </p>
+            </div>
+          </div>
         </Reveal>
       </div>
     </Section>

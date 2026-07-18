@@ -52,30 +52,46 @@ export const background = {
   },
 };
 
+export type ProblemShot = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  caption: string;
+  // Cyan highlight box, as percentages of the image (left/top/width/height).
+  highlight?: { left: number; top: number; width: number; height: number };
+};
+
 export const problem = {
   heading: "Problem",
   // (verbatim, from the live site)
   caption:
     "Lack of documentation meant safety patterns went unnoticed. Only manufacturing data was visible, with no way to log incidents.",
-  images: [
+  shots: [
     {
       src: "/images/manufacturing-overview.png",
-      alt: "The Manufacturing work centers overview — only production data, no safety layer",
+      alt: "The Manufacturing work centers overview with the Reporting menu open",
       width: 2482,
       height: 1308,
-      // DRAFT caption
-      caption: "The Manufacturing overview surfaced production metrics only.",
+      // (verbatim caption)
+      caption:
+        "Reporting was limited to equipment. Injuries and serious incidents had no way to be recorded.",
+      highlight: { left: 29, top: 1, width: 18, height: 12 },
     },
     {
-      src: "/images/problem-reporting-menu.png",
-      alt: "The reporting menu, limited to Work Orders and Overall Equipment Effectiveness",
-      width: 399,
-      height: 190,
-      // DRAFT caption
+      // ASSET NEEDED — the Manufacturing Order (WH/MO/00002) screenshot with
+      // the "Log note" chatter panel. Shows a labeled placeholder until you
+      // drop the file in as public/images/problem-manufacturing-order.png.
+      src: "/images/problem-manufacturing-order.png",
+      alt: "A Manufacturing Order detail with the Log note chatter panel highlighted",
+      width: 2482,
+      height: 1308,
+      // (verbatim caption)
       caption:
-        "Reporting was limited to Work Orders and Overall Equipment Effectiveness — no way to log an incident.",
+        "Logs could be added per work order, but were too buried to reveal any clear pattern.",
+      highlight: { left: 60, top: 20, width: 39, height: 30 },
     },
-  ],
+  ] satisfies ProblemShot[],
 };
 
 export const solution = {
@@ -92,33 +108,31 @@ export const solution = {
 
 export const persona = {
   heading: "Who is the user?",
-  // DRAFT — replace with the real persona quote from the site
+  // (verbatim, from the reference screenshot)
+  subtitle:
+    "An Operations Manager who recently took on EHS responsibilities on top of their existing role.",
   quote:
-    "I only find out about hazards after someone's already been hurt. By then it's too late to prevent it.",
-  personaName: "Production Floor Manager", // DRAFT
+    "I spend more time reacting to problems than preventing them. By the time I see the data, someone's already hurt.",
   image: {
     src: "/images/persona-worker.png",
-    alt: "A production floor manager reviewing work on a laptop in the warehouse",
+    alt: "An operations manager reviewing work on a laptop in the warehouse",
     width: 506,
     height: 429,
   },
   complexity: {
     title: "What makes their job complex",
+    // (verbatim)
     items: [
-      "Oversees multiple work centers and shifts at once",
-      "Balances production targets against safety compliance",
-      "Relies on second-hand, delayed reports of floor conditions",
-      "Accountable for incidents they had no way to see coming",
+      "Manages many work centers with 50–150 employees",
+      "Previously relied on Excel and paper logs",
+      "Safety compliance and incident reporting are new responsibilities, not ones they were trained for",
+      "Overloaded with parallel duties: shift management, work orders, scheduling, MRP planning",
     ],
   },
   success: {
-    title: "What success looks like",
-    items: [
-      "Hazards are reported the moment they're noticed",
-      "Incident status is visible at a glance on the overview",
-      "Recurring patterns surface before anyone is injured",
-      "Compliance reporting happens as a by-product of daily work",
-    ],
+    title: "What success looks like for them",
+    // (verbatim)
+    body: "All tasks are completed on time, with no delays, safety issues, or unnecessary injuries.",
   },
 };
 
@@ -138,9 +152,9 @@ export const featureSections: FeatureSectionData[] = [
   {
     id: "incident-reporting",
     heading: "Incident Reporting",
-    label: "Report where the work happens", // DRAFT
-    caption:
-      "Workers log an incident from the work center they're already on — no separate system, no context switching.", // DRAFT
+    label: "Fill in the details", // (verbatim label from the reference)
+    // (verbatim caption)
+    caption: "One click logs the incident and instantly notifies EHS staff.",
     captionSide: "right",
     video: { src: "/videos/incident-reporting.mp4", width: 16, height: 10 },
   },
@@ -149,7 +163,7 @@ export const featureSections: FeatureSectionData[] = [
     heading: "Incident Tracking",
     label: "Click on the red badge", // (verbatim label from the reference)
     caption:
-      "A color-coded badge on each work center surfaces open incidents at a glance, so nothing stays buried.", // DRAFT
+      "Every incident shows up as a badge on its work center — open it to see the full report.", // DRAFT
     captionSide: "left",
     video: { src: "/videos/incident-tracking.mp4", width: 16, height: 10 },
   },
@@ -158,7 +172,7 @@ export const featureSections: FeatureSectionData[] = [
     heading: "Safety Analytics",
     label: "Spot the pattern", // DRAFT
     caption:
-      "Aggregated trends across work centers reveal recurring hazards before they turn into injuries.", // DRAFT
+      "Charts surface recurring hazards and trends across every work center.", // DRAFT
     captionSide: "right",
     video: { src: "/videos/safety-analytics.mp4", width: 16, height: 10 },
   },

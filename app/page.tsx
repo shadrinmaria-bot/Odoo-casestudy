@@ -24,8 +24,8 @@ export default function Home() {
         <Solution />
         <Persona />
 
-        {featureSections.map((feature, i) => (
-          <FeatureSection key={feature.id} data={feature} alt={i % 2 === 1} />
+        {featureSections.map((feature) => (
+          <FeatureSection key={feature.id} data={feature} />
         ))}
 
         <Section id="design-decisions" className="pb-0">

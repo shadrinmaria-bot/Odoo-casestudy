@@ -18,6 +18,8 @@ const config: Config = {
         paper: "#0C0C0E",
         surface: "#141418",
         "surface-alt": "#111114",
+        // feature-section background (slightly blue-black, per reference)
+        panel: "#11141B",
         // text
         ink: "#FFFFFF",
         muted: "#A6A6AE",

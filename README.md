@@ -54,6 +54,14 @@ Any image/video component falls back to a labeled placeholder if a file is
 missing, so swapping or adding assets never breaks the layout — just drop a
 file into `public/` matching the path in `lib/content.ts`.
 
+**Still needed:** `public/images/problem-manufacturing-order.png` — the
+Manufacturing Order (WH/MO/00002) screenshot with the "Log note" chatter
+panel, used as the second Problem screenshot. It shows a labeled
+placeholder (with a cyan highlight box) until you drop the file in. The
+cyan highlight rectangles for the Problem screenshots are positioned as
+percentages in the `problem.shots[].highlight` values in `lib/content.ts`
+— nudge them if a screenshot's crop differs.
+
 ## Page structure
 
 Single scrolling page, in order: Hero → Background → Problem → Solution →
