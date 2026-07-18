@@ -1,14 +1,14 @@
 /**
- * The bold cyan arrow from the reference: a thick rounded stem ending in a
- * wide V head. Defined on a small viewBox so a strokeWidth of 3 reads as a
- * bold ~23%-of-width stroke, and scales up thick. One shape, four
- * directions (the same arrow rotated).
+ * A thin, elegant cyan arrow: a long slender stem ending in an open V head,
+ * round caps. Drawn with a crisp non-scaling 2px stroke so it stays fine and
+ * consistent at every size. One shape, four directions (the same arrow
+ * rotated); callers pass a single `size` (extent along the pointing axis).
  */
 const paths = {
-  down: { vw: 13, vh: 16, stem: "M6.5 3V11.5", head: "M3.5 7.5L6.5 12.5L9.5 7.5" },
-  up: { vw: 13, vh: 16, stem: "M6.5 13V4.5", head: "M3.5 8.5L6.5 3.5L9.5 8.5" },
-  right: { vw: 16, vh: 13, stem: "M3 6.5H11.5", head: "M7.5 3.5L12.5 6.5L7.5 9.5" },
-  left: { vw: 16, vh: 13, stem: "M13 6.5H4.5", head: "M8.5 3.5L3.5 6.5L8.5 9.5" },
+  down: { vw: 24, vh: 38, stem: "M12 3V34", head: "M5 26L12 34L19 26" },
+  up: { vw: 24, vh: 38, stem: "M12 35V4", head: "M5 12L12 4L19 12" },
+  right: { vw: 38, vh: 24, stem: "M3 12H34", head: "M26 5L34 12L26 19" },
+  left: { vw: 38, vh: 24, stem: "M35 12H4", head: "M12 5L4 12L12 19" },
 } as const;
 
 export default function Arrow({
@@ -24,7 +24,7 @@ export default function Arrow({
 }) {
   const p = paths[direction];
   const vertical = direction === "down" || direction === "up";
-  const long = size ?? (vertical ? 54 : 60);
+  const long = size ?? (vertical ? 56 : 62);
   const width = vertical ? (long * p.vw) / p.vh : long;
   const height = vertical ? long : (long * p.vh) / p.vw;
 
@@ -37,13 +37,20 @@ export default function Arrow({
       fill="none"
       className={`text-accent ${className}`}
     >
-      <path d={p.stem} stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+      <path
+        d={p.stem}
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        vectorEffect="non-scaling-stroke"
+      />
       <path
         d={p.head}
         stroke="currentColor"
-        strokeWidth="3"
+        strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
+        vectorEffect="non-scaling-stroke"
       />
     </svg>
   );
