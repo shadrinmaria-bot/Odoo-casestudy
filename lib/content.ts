@@ -261,10 +261,3 @@ export const futureImprovements = {
   // Video to be uploaded later; shows a labeled placeholder until then.
   video: { src: "/videos/future-improvements.mp4", width: 16, height: 9 },
 };
-
-export const footer = {
-  homeLabel: "Home",
-  // The original "Built on Wix Studio" badge is replaced by this quiet
-  // credit line. Delete `credit` to remove it entirely.
-  credit: "Originally designed in Wix Studio · Rebuilt with Next.js",
-};
