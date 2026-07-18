@@ -54,6 +54,18 @@ Any image/video component falls back to a labeled placeholder if a file is
 missing, so swapping or adding assets never breaks the layout — just drop a
 file into `public/` matching the path in `lib/content.ts`.
 
+**Still needed:** `public/videos/future-improvements.mp4` — the demo for
+the "Needs Attention" future-improvements section. It shows a labeled
+placeholder until you drop the file in.
+
+The cyan highlight rectangles for the Problem screenshots are positioned as
+percentages in the `problem.shots[].highlight` values in `lib/content.ts`
+— nudge them if a screenshot's crop differs. The incident badges in the
+Design Decisions section are rendered in CSS (`components/Badge.tsx`), not
+images. The feature demo videos already contain their own laptop mockup and
+captions, so those sections just position the video left/right
+(`featureSections[].videoSide`).
+
 ## Page structure
 
 Single scrolling page, in order: Hero → Background → Problem → Solution →

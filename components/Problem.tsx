@@ -1,5 +1,5 @@
+import AnnotatedShot from "@/components/AnnotatedShot";
 import Arrow from "@/components/Arrow";
-import Asset from "@/components/Asset";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
 import { problem } from "@/lib/content";
@@ -16,24 +16,22 @@ export default function Problem() {
         </p>
       </Reveal>
 
-      {problem.images.map((img, i) => (
-        <div key={img.src}>
-          <Reveal delay={0.1} className="mt-14 flex justify-center">
+      {problem.shots.map((shot) => (
+        <div key={shot.src}>
+          <Reveal delay={0.1} className="mt-16 flex justify-center">
             <Arrow direction="down" />
           </Reveal>
-          <Reveal delay={0.2} className="mx-auto mt-8 max-w-4xl">
-            <Asset
-              src={img.src}
-              alt={img.alt}
-              width={img.width}
-              height={img.height}
-              className="border border-line shadow-2xl ring-1 ring-accent/15"
+          <Reveal delay={0.2} className="mx-auto mt-8 max-w-5xl">
+            <AnnotatedShot
+              src={shot.src}
+              alt={shot.alt}
+              width={shot.width}
+              height={shot.height}
+              highlight={shot.highlight}
             />
-            {img.caption ? (
-              <p className="mx-auto mt-5 max-w-2xl text-center text-sm text-muted md:text-base">
-                {img.caption}
-              </p>
-            ) : null}
+            <p className="mx-auto mt-6 max-w-xl text-center text-sm text-muted md:text-base">
+              {shot.caption}
+            </p>
           </Reveal>
         </div>
       ))}

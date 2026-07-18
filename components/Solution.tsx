@@ -15,10 +15,7 @@ export default function Solution() {
         </p>
       </Reveal>
       <Reveal delay={0.15} className="mx-auto mt-12 max-w-xl">
-        <Asset
-          {...solution.image}
-          className="border border-line shadow-2xl ring-1 ring-accent/20"
-        />
+        <Asset {...solution.image} className="border border-line" />
       </Reveal>
     </Section>
   );

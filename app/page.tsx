@@ -3,6 +3,8 @@ import BadgeIterations from "@/components/BadgeIterations";
 import FeatureSection from "@/components/FeatureSection";
 import Footer from "@/components/Footer";
 import FormDecisions from "@/components/FormDecisions";
+import FutureImprovements from "@/components/FutureImprovements";
+import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Persona from "@/components/Persona";
 import Problem from "@/components/Problem";
@@ -22,8 +24,8 @@ export default function Home() {
         <Solution />
         <Persona />
 
-        {featureSections.map((feature, i) => (
-          <FeatureSection key={feature.id} data={feature} alt={i % 2 === 1} />
+        {featureSections.map((feature) => (
+          <FeatureSection key={feature.id} data={feature} />
         ))}
 
         <Section id="design-decisions" className="pb-0">
@@ -37,6 +39,7 @@ export default function Home() {
         <BadgeIterations />
         <FormDecisions />
         <ReportView />
+        <FutureImprovements />
       </main>
       <Footer />
     </>

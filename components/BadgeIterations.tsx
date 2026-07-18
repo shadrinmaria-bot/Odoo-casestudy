@@ -1,60 +1,65 @@
 import Arrow from "@/components/Arrow";
-import Badge from "@/components/Badge";
+import {
+  CountBadge,
+  OpenPill,
+  WarningTriangle,
+  ZeroIncidentBadge,
+} from "@/components/Badge";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
-import SectionHeading from "@/components/SectionHeading";
 import { badgeIterations } from "@/lib/content";
-import type { BadgePill } from "@/lib/content";
-
-function PillGroup({ pills }: { pills: BadgePill[] }) {
-  return (
-    <div className="flex flex-col items-center gap-2">
-      {pills.map((pill, i) => (
-        <Badge key={i} pill={pill} />
-      ))}
-    </div>
-  );
-}
 
 export default function BadgeIterations() {
-  return (
-    <Section id="design-badge" alt>
-      <SectionHeading
-        title={badgeIterations.heading}
-        intro={badgeIterations.intro}
-      />
+  const { before, after, noIncidents } = badgeIterations;
 
-      {/* Hero before → after */}
-      <Reveal className="mt-14">
-        <div className="flex flex-wrap items-center justify-center gap-8 rounded-card border border-line bg-surface p-8 md:gap-14 md:p-12">
-          <PillGroup pills={badgeIterations.hero.before} />
-          <Arrow direction="right" />
-          <PillGroup pills={badgeIterations.hero.after} />
+  return (
+    <Section id="design-badge">
+      <Reveal>
+        <h2 className="font-display text-3xl font-semibold tracking-tight md:text-5xl">
+          {badgeIterations.heading}
+        </h2>
+      </Reveal>
+
+      {/* Hero: severity pills → count badges */}
+      <Reveal className="mt-16">
+        <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
+          <div className="flex flex-col gap-3">
+            {before.map((pill, i) => (
+              <OpenPill key={i} pill={pill} />
+            ))}
+          </div>
+          <Arrow direction="right" width={120} height={28} />
+          <div className="flex flex-col gap-3">
+            {after.map((pill, i) => (
+              <CountBadge key={i} pill={pill} />
+            ))}
+          </div>
         </div>
       </Reveal>
 
-      {/* Per-decision rows */}
-      <div className="mt-14 space-y-12">
-        {badgeIterations.iterations.map((it) => (
-          <Reveal key={it.title}>
-            <div className="grid items-center gap-8 border-t border-line pt-12 md:grid-cols-2 md:gap-14">
-              <div>
-                <h3 className="font-display text-xl font-bold tracking-tight md:text-2xl">
-                  {it.title}
-                </h3>
-                <p className="mt-3 max-w-md text-sm leading-relaxed text-muted md:text-base">
-                  {it.body}
-                </p>
-              </div>
-              <div className="flex items-center justify-center gap-6 md:justify-end md:gap-10">
-                <PillGroup pills={it.before} />
-                <Arrow direction="right" />
-                <PillGroup pills={it.after} />
-              </div>
+      {/* No incidents state */}
+      <Reveal className="mt-24">
+        <div className="grid gap-x-16 gap-y-10 md:grid-cols-2">
+          <div>
+            <h3 className="font-display text-2xl font-semibold tracking-tight md:text-3xl">
+              {noIncidents.heading}
+            </h3>
+            <p className="mt-6 max-w-md text-base leading-relaxed text-white/90 md:text-lg">
+              {noIncidents.oldText}
+            </p>
+            <div className="my-8">
+              <Arrow direction="down" width={24} height={72} />
             </div>
-          </Reveal>
-        ))}
-      </div>
+            <p className="max-w-md text-base leading-relaxed text-white/90 md:text-lg">
+              {noIncidents.newText}
+            </p>
+          </div>
+          <div className="flex flex-col items-center justify-between gap-16 py-2 md:items-end md:pr-8">
+            <ZeroIncidentBadge />
+            <WarningTriangle />
+          </div>
+        </div>
+      </Reveal>
     </Section>
   );
 }
