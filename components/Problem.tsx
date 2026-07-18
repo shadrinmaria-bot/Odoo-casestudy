@@ -7,13 +7,15 @@ import { problem } from "@/lib/content";
 export default function Problem() {
   return (
     <Section id="problem" className="bg-[#101014] py-24 md:py-32">
-      <Reveal className="text-center">
-        <h2 className="font-display text-3xl font-semibold tracking-tight md:text-5xl">
-          {problem.heading}
-        </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/90 md:text-xl">
-          {problem.caption}
-        </p>
+      <Reveal>
+        <div className="mx-auto max-w-2xl text-left">
+          <h2 className="font-display text-3xl font-semibold tracking-tight md:text-5xl">
+            {problem.heading}
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-white/90 md:text-xl">
+            {problem.caption}
+          </p>
+        </div>
       </Reveal>
 
       {problem.shots.map((shot) => (
@@ -29,7 +31,7 @@ export default function Problem() {
               height={shot.height}
               highlight={shot.highlight}
             />
-            <p className="mx-auto mt-6 max-w-xl text-center text-sm text-muted md:text-base">
+            <p className="mx-auto mt-6 max-w-xl text-left text-sm text-muted md:text-base">
               {shot.caption}
             </p>
           </Reveal>

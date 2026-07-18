@@ -28,8 +28,8 @@ export default function Home() {
         ))}
 
         <Section id="design-decisions" className="bg-black py-20 md:py-24">
-          <Reveal className="text-center">
-            <h2 className="font-display text-3xl font-bold tracking-tight md:text-5xl">
+          <Reveal className="flex justify-center">
+            <h2 className="text-left font-display text-3xl font-bold tracking-tight md:text-5xl">
               {designDecisions.heading}
             </h2>
           </Reveal>

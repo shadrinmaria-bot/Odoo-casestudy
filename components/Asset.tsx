@@ -31,7 +31,7 @@ export default function Asset({
         role="img"
         aria-label={alt}
         style={{ aspectRatio: `${width} / ${height}` }}
-        className={`flex w-full flex-col items-center justify-center gap-2 rounded-card border border-dashed border-line bg-surface-alt p-6 text-center ${className}`}
+        className={`flex w-full flex-col items-center justify-center gap-2 rounded-card border border-dashed border-line bg-surface-alt p-6 text-left ${className}`}
       >
         <span className="font-mono text-xs text-faint">missing asset</span>
         <span className="font-mono text-sm font-medium text-muted">{src}</span>

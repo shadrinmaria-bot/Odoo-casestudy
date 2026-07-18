@@ -31,7 +31,7 @@ export default function VideoAsset({
         role="img"
         aria-label={label}
         style={{ aspectRatio: `${width} / ${height}` }}
-        className={`flex w-full flex-col items-center justify-center gap-2 border border-dashed border-line bg-surface-alt p-6 text-center ${className}`}
+        className={`flex w-full flex-col items-center justify-center gap-2 border border-dashed border-line bg-surface-alt p-6 text-left ${className}`}
       >
         <span className="font-mono text-xs text-faint">missing video</span>
         <span className="font-mono text-sm font-medium text-muted">{src}</span>

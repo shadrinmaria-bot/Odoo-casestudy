@@ -7,7 +7,7 @@ export default function Background() {
       id="background"
       className="bg-black px-6 py-24 md:px-10 md:py-32"
     >
-      <div className="mx-auto max-w-3xl text-center">
+      <div className="mx-auto max-w-3xl text-left">
         <Reveal>
           <h2 className="font-display text-3xl font-semibold tracking-tight md:text-5xl">
             {background.heading}

@@ -11,8 +11,8 @@ export default function FeatureSection({ data }: { data: FeatureSectionData }) {
   return (
     <section id={data.id} className="bg-panel px-6 py-24 md:px-10 md:py-32">
       <div className="mx-auto max-w-5xl">
-        <Reveal className="text-center">
-          <h2 className="font-display text-2xl font-semibold tracking-tight md:text-4xl">
+        <Reveal className="flex justify-center">
+          <h2 className="text-left font-display text-2xl font-semibold tracking-tight md:text-4xl">
             {data.heading}
           </h2>
         </Reveal>
