@@ -172,12 +172,6 @@ export const badgeIterations = {
   heading: "Incident Badge Design Iterations",
   intro:
     "The badge sits on every work center and is the element workers see most often. Each iteration made its state easier to read at a glance.",
-  overview: {
-    src: "/images/badge-iterations-overview.png",
-    alt: "The evolution of safety incident badges from open-state pills to compact incident badges",
-    width: 1011,
-    height: 198,
-  },
   decisions: [
     {
       title: "Color coding",

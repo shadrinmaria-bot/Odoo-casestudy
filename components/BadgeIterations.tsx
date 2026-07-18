@@ -1,10 +1,9 @@
-import Asset from "@/components/Asset";
 import Arrow from "@/components/Arrow";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
 import { badgeIterations } from "@/lib/content";
 
-function IncidentBadge({ children, tone }: { children: string; tone: "red" | "blue" | "grey" }) {
+function IncidentBadge({ children, tone }: { children: string | number; tone: "red" | "blue" | "grey" }) {
   const colors = {
     red: "bg-[#F9464C] text-black",
     blue: "bg-[#008FE3] text-black",
@@ -12,13 +11,14 @@ function IncidentBadge({ children, tone }: { children: string; tone: "red" | "bl
   };
 
   return (
-    <span className={`inline-flex h-6 items-center rounded px-3 text-[13px] font-semibold ${colors[tone]}`}>
-      {children}⌃
+    <span className={`inline-flex h-6 items-center gap-1 rounded px-3 text-[13px] font-semibold ${colors[tone]}`}>
+      {children}
+      <span aria-hidden className="font-awesome-solid text-[8px]">{`\uF0D8`}</span>
     </span>
   );
 }
 
-function OpenBadge({ children, tone }: { children: string; tone: "red" | "amber" | "green" }) {
+function OpenBadge({ children, tone }: { children: string | number; tone: "red" | "amber" | "green" }) {
   const colors = {
     red: "bg-[#FB5157]",
     amber: "bg-[#E79A21]",
@@ -26,9 +26,79 @@ function OpenBadge({ children, tone }: { children: string; tone: "red" | "amber"
   };
 
   return (
-    <span className={`inline-flex h-[22px] min-w-[86px] items-center justify-center rounded-full px-3 text-[13px] font-bold text-[#1B1D26] ${colors[tone]}`}>
-      ▲&nbsp; {children}
+    <span className={`inline-flex h-[22px] min-w-[86px] items-center justify-center gap-2 rounded-full px-3 text-[13px] font-bold text-[#1B1D26] ${colors[tone]}`}>
+      <span aria-hidden className="font-awesome-solid text-[10px]">{`\uF0D8`}</span>
+      {children}
     </span>
+  );
+}
+
+function WorkflowArrow({ long = false }: { long?: boolean }) {
+  return (
+    <svg
+      aria-hidden
+      viewBox={long ? "0 0 52 20" : "0 0 30 20"}
+      className={long ? "h-5 w-[52px] shrink-0" : "h-5 w-[30px] shrink-0"}
+      fill="none"
+    >
+      <path
+        d={long ? "M1 10H48M40 2L49 10L40 18" : "M1 10H26M18 2L27 10L18 18"}
+        stroke="#2FFFD5"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function OpenedBadge({ count, tone }: { count: 0 | 1 | 2; tone: "red" | "amber" | "grey" }) {
+  const styles = {
+    red: "bg-[#F9464C] text-black",
+    amber: "border border-[#E79A21] text-white",
+    grey: "bg-[#3C3E4B] text-white",
+  };
+
+  return (
+    <span className={`inline-flex h-6 w-[157px] items-stretch overflow-hidden rounded-[4px] text-[13px] font-semibold ${styles[tone]}`}>
+      <span className="flex flex-1 items-center justify-center">{count} Opened Incidents</span>
+      {count > 0 ? (
+        <span className={`flex w-[22px] items-center justify-center ${tone === "red" ? "bg-[#FF6267]" : "border-l border-[#E79A21] bg-[#E79A21]/20"}`}>
+          <span aria-hidden className="font-awesome-solid text-[8px]">{`\uF0D8`}</span>
+        </span>
+      ) : null}
+    </span>
+  );
+}
+
+function BadgeWorkflowOverview() {
+  const rows = [
+    { count: 1 as const, openTone: "red" as const, openedTone: "red" as const, incidentTone: "red" as const },
+    { count: 2 as const, openTone: "amber" as const, openedTone: "amber" as const, incidentTone: "blue" as const },
+    { count: 0 as const, openTone: "green" as const, openedTone: "grey" as const, incidentTone: "grey" as const },
+  ];
+
+  return (
+    <div className="overflow-x-auto rounded-card border border-line bg-surface p-6 md:flex md:h-[198px] md:items-center md:justify-center md:p-[49px]">
+      <div className="mx-auto flex min-w-[629px] flex-col gap-5" role="img" aria-label="Incident badge design progression">
+        {rows.map((row) => (
+          <div key={row.count} className="flex h-6 items-center gap-[14px]">
+            <OpenBadge tone={row.openTone}>{`${row.count} Open`}</OpenBadge>
+            <WorkflowArrow />
+            <OpenedBadge count={row.count} tone={row.openedTone} />
+            <WorkflowArrow />
+            <IncidentBadge tone={row.incidentTone}>{`${row.count} Incident`}</IncidentBadge>
+            {row.count === 0 ? (
+              <>
+                <WorkflowArrow long />
+                <span aria-hidden className="font-awesome-solid text-sm text-[#70747C]">{`\uF071`}</span>
+                <span className="whitespace-nowrap text-[10px] text-muted">(on hover)</span>
+              </>
+            ) : null}
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -54,7 +124,7 @@ function DecisionVisual({ kind }: { kind: "colors" | "cognitive" | "zero" }) {
     return (
       <div className="flex items-center justify-center gap-10">
         <span className="inline-flex h-6 items-center rounded bg-[#F9464C] px-3 text-[13px] font-semibold text-black">
-          1 Opened Incidents&nbsp;⌃
+          1 Opened Incidents&nbsp;<span aria-hidden className="font-awesome-solid text-[8px]">{`\uF0D8`}</span>
         </span>
         <Arrow direction="right" width={60} height={28} />
         <IncidentBadge tone="red">1 Incident</IncidentBadge>
@@ -84,7 +154,7 @@ export default function BadgeIterations() {
       </Reveal>
 
       <Reveal className="mx-auto mt-6 max-w-[1011px]">
-        <Asset {...badgeIterations.overview} className="rounded-card" />
+        <BadgeWorkflowOverview />
       </Reveal>
 
       <div className="mt-10">
