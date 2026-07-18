@@ -54,6 +54,14 @@ Any image/video component falls back to a labeled placeholder if a file is
 missing, so swapping or adding assets never breaks the layout — just drop a
 file into `public/` matching the path in `lib/content.ts`.
 
+## Page structure
+
+Single scrolling page, in order: Hero → Background → Problem → Solution →
+Who is the user? → Incident Reporting → Incident Tracking → Safety
+Analytics → Design Decisions (Incident Badge Design Iterations → Safety
+Incident Report Form → Submitted Incident Report View) → Footer. The badge
+iterations are rendered as live CSS badges (before → after), not images.
+
 ## Assumptions to verify
 
 - **Video order** — the three demos are mapped to Incident Reporting /

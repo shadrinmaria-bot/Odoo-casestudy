@@ -1,20 +1,17 @@
 import Background from "@/components/Background";
-import DesignDecisions from "@/components/DesignDecisions";
-import FeatureOverview from "@/components/FeatureOverview";
+import BadgeIterations from "@/components/BadgeIterations";
+import FeatureSection from "@/components/FeatureSection";
 import Footer from "@/components/Footer";
+import FormDecisions from "@/components/FormDecisions";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Persona from "@/components/Persona";
 import Problem from "@/components/Problem";
-import RootCauses from "@/components/RootCauses";
-import Showcase from "@/components/Showcase";
+import Reveal from "@/components/Reveal";
+import ReportView from "@/components/ReportView";
+import Section from "@/components/Section";
 import Solution from "@/components/Solution";
-import StatCallout from "@/components/StatCallout";
-import {
-  badgeDecisions,
-  formDecisions,
-  reportViewDecisions,
-} from "@/lib/content";
+import { designDecisions, featureSections } from "@/lib/content";
 
 export default function Home() {
   return (
@@ -25,38 +22,23 @@ export default function Home() {
         <Background />
         <Problem />
         <Solution />
-        <StatCallout />
-        <RootCauses />
         <Persona />
-        <FeatureOverview />
-        <Showcase
-          id="design-badge"
-          kicker={badgeDecisions.kicker}
-          heading={badgeDecisions.heading}
-          intro={badgeDecisions.intro}
-          images={badgeDecisions.images}
-          points={badgeDecisions.points}
-          alt
-          mediaFirst
-        />
-        <Showcase
-          id="design-form"
-          kicker={formDecisions.kicker}
-          heading={formDecisions.heading}
-          intro={formDecisions.intro}
-          images={formDecisions.images}
-          points={formDecisions.points}
-          mediaFirst={false}
-        />
-        <DesignDecisions
-          id="design-report-view"
-          kicker={reportViewDecisions.kicker}
-          heading={reportViewDecisions.heading}
-          intro={reportViewDecisions.intro}
-          comparisons={reportViewDecisions.comparisons}
-          futureNote={reportViewDecisions.futureNote}
-          alt
-        />
+
+        {featureSections.map((feature, i) => (
+          <FeatureSection key={feature.id} data={feature} alt={i % 2 === 1} />
+        ))}
+
+        <Section id="design-decisions" className="pb-0">
+          <Reveal className="text-center">
+            <h2 className="font-display text-4xl font-bold tracking-tight md:text-6xl">
+              {designDecisions.heading}
+            </h2>
+          </Reveal>
+        </Section>
+
+        <BadgeIterations />
+        <FormDecisions />
+        <ReportView />
       </main>
       <Footer />
     </>

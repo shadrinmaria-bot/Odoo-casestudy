@@ -1,3 +1,4 @@
+import Arrow from "@/components/Arrow";
 import Asset from "@/components/Asset";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
@@ -15,37 +16,27 @@ export default function Problem() {
         </p>
       </Reveal>
 
-      <Reveal delay={0.15} className="mt-14 flex justify-center">
-        <svg
-          aria-hidden
-          width="48"
-          height="72"
-          viewBox="0 0 48 72"
-          fill="none"
-          className="text-accent"
-        >
-          <path
-            d="M24 2v54"
-            stroke="currentColor"
-            strokeWidth="4"
-            strokeLinecap="round"
-          />
-          <path
-            d="M8 44l16 20 16-20"
-            stroke="currentColor"
-            strokeWidth="4"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </Reveal>
-
-      <Reveal delay={0.25} className="mx-auto mt-8 max-w-2xl">
-        <Asset
-          {...problem.image}
-          className="border border-line shadow-2xl ring-1 ring-accent/20"
-        />
-      </Reveal>
+      {problem.images.map((img, i) => (
+        <div key={img.src}>
+          <Reveal delay={0.1} className="mt-14 flex justify-center">
+            <Arrow direction="down" />
+          </Reveal>
+          <Reveal delay={0.2} className="mx-auto mt-8 max-w-4xl">
+            <Asset
+              src={img.src}
+              alt={img.alt}
+              width={img.width}
+              height={img.height}
+              className="border border-line shadow-2xl ring-1 ring-accent/15"
+            />
+            {img.caption ? (
+              <p className="mx-auto mt-5 max-w-2xl text-center text-sm text-muted md:text-base">
+                {img.caption}
+              </p>
+            ) : null}
+          </Reveal>
+        </div>
+      ))}
     </Section>
   );
 }

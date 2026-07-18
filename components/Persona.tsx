@@ -22,7 +22,7 @@ function List({ title, items }: { title: string; items: string[] }) {
 
 export default function Persona() {
   return (
-    <Section id="persona" alt>
+    <Section id="persona">
       <SectionHeading title={persona.heading} />
       <div className="mt-12 grid items-center gap-6 md:grid-cols-[1fr_1.4fr]">
         <Reveal direction="left">

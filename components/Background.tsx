@@ -1,20 +1,23 @@
 import Asset from "@/components/Asset";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
-import SectionHeading from "@/components/SectionHeading";
 import { background } from "@/lib/content";
 
 export default function Background() {
   return (
     <Section id="background" alt>
-      <SectionHeading title={background.heading} intro={background.body} />
-      <div className="mt-12 grid gap-8 md:grid-cols-2">
-        {background.images.map((image, i) => (
-          <Reveal key={image.src} delay={i * 0.12}>
-            <Asset {...image} className="border border-line shadow-sm" />
-          </Reveal>
-        ))}
-      </div>
+      <Reveal className="mx-auto max-w-3xl text-center">
+        <Asset
+          {...background.image}
+          className="mx-auto mb-10 max-w-md opacity-90"
+        />
+        <h2 className="font-display text-3xl font-semibold tracking-tight md:text-5xl">
+          {background.heading}
+        </h2>
+        <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted md:text-lg">
+          {background.body}
+        </p>
+      </Reveal>
     </Section>
   );
 }
