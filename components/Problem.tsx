@@ -21,7 +21,7 @@ export default function Problem() {
       {problem.shots.map((shot) => (
         <div key={shot.src}>
           <Reveal delay={0.1} className="mt-14 flex justify-center md:mt-20">
-            <Arrow direction="down" width={18} height={56} />
+            <Arrow direction="down" />
           </Reveal>
           <Reveal delay={0.2} className="mx-auto mt-8 max-w-5xl">
             <AnnotatedShot
