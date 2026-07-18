@@ -46,16 +46,6 @@ export default function ReportView() {
           {reportView.body}
         </p>
       </Reveal>
-      <Reveal className="mt-14">
-        <aside className="rounded-card border border-dashed border-accent/40 bg-accent-soft/60 p-8">
-          <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
-            {reportView.futureNote.title}
-          </h3>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted md:text-base">
-            {reportView.futureNote.body}
-          </p>
-        </aside>
-      </Reveal>
     </Section>
   );
 }

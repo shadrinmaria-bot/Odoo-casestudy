@@ -3,6 +3,7 @@ import BadgeIterations from "@/components/BadgeIterations";
 import FeatureSection from "@/components/FeatureSection";
 import Footer from "@/components/Footer";
 import FormDecisions from "@/components/FormDecisions";
+import FutureImprovements from "@/components/FutureImprovements";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Persona from "@/components/Persona";
@@ -39,6 +40,7 @@ export default function Home() {
         <BadgeIterations />
         <FormDecisions />
         <ReportView />
+        <FutureImprovements />
       </main>
       <Footer />
     </>

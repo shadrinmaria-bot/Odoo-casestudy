@@ -79,17 +79,14 @@ export const problem = {
       highlight: { left: 29, top: 1, width: 18, height: 12 },
     },
     {
-      // ASSET NEEDED — the Manufacturing Order (WH/MO/00002) screenshot with
-      // the "Log note" chatter panel. Shows a labeled placeholder until you
-      // drop the file in as public/images/problem-manufacturing-order.png.
       src: "/images/problem-manufacturing-order.png",
       alt: "A Manufacturing Order detail with the Log note chatter panel highlighted",
       width: 2482,
-      height: 1308,
+      height: 1347,
       // (verbatim caption)
       caption:
         "Logs could be added per work order, but were too buried to reveal any clear pattern.",
-      highlight: { left: 60, top: 20, width: 39, height: 30 },
+      highlight: { left: 63, top: 12, width: 36, height: 17 },
     },
   ] satisfies ProblemShot[],
 };
@@ -139,41 +136,29 @@ export const persona = {
 export type FeatureSectionData = {
   id: string;
   heading: string;
-  label: string;
-  caption: string;
-  captionSide: "left" | "right";
+  // The demo videos already contain their own laptop mockup and captions,
+  // so the section only positions the video to one side.
+  videoSide: "left" | "right";
   video: { src: string; width: number; height: number };
 };
 
-// Each feature is its own full-width section with a framed demo video and
-// a caption that alternates sides. Video order assumed 01/02/03 → swap the
-// `src` values if the client's intended order differs.
 export const featureSections: FeatureSectionData[] = [
   {
     id: "incident-reporting",
     heading: "Incident Reporting",
-    label: "Fill in the details", // (verbatim label from the reference)
-    // (verbatim caption)
-    caption: "One click logs the incident and instantly notifies EHS staff.",
-    captionSide: "right",
+    videoSide: "left",
     video: { src: "/videos/incident-reporting.mp4", width: 16, height: 10 },
   },
   {
     id: "incident-tracking",
     heading: "Incident Tracking",
-    label: "Click on the red badge", // (verbatim label from the reference)
-    caption:
-      "Every incident shows up as a badge on its work center — open it to see the full report.", // DRAFT
-    captionSide: "left",
+    videoSide: "right",
     video: { src: "/videos/incident-tracking.mp4", width: 16, height: 10 },
   },
   {
     id: "safety-analytics",
     heading: "Safety Analytics",
-    label: "Spot the pattern", // DRAFT
-    caption:
-      "Charts surface recurring hazards and trends across every work center.", // DRAFT
-    captionSide: "right",
+    videoSide: "left",
     video: { src: "/videos/safety-analytics.mp4", width: 16, height: 10 },
   },
 ];
@@ -182,62 +167,30 @@ export const designDecisions = {
   heading: "Design Decisions",
 };
 
-export type BadgePill = {
-  text: string;
-  tone: "danger" | "warning" | "success" | "neutral";
-  variant: "solid" | "soft" | "outline";
-};
-
-export type BadgeIteration = {
-  title: string;
-  body: string;
-  before: BadgePill[];
-  after: BadgePill[];
-};
+export type BadgeTone = "danger" | "warning" | "success" | "neutral";
+export type BadgePill = { text: string; tone: BadgeTone };
 
 export const badgeIterations = {
   heading: "Incident Badge Design Iterations",
-  // DRAFT intro
-  intro:
-    "The badge sits on every work center and is the element workers see most often. Each iteration made its state easier to read at a glance.",
-  // Top hero comparison: the overall before → after of the badge set.
-  hero: {
-    before: [
-      { text: "3 Incidents", tone: "neutral", variant: "solid" },
-      { text: "1 Incident", tone: "neutral", variant: "solid" },
-      { text: "0 Incidents", tone: "neutral", variant: "solid" },
-    ] as BadgePill[],
-    after: [
-      { text: "3 Critical", tone: "danger", variant: "solid" },
-      { text: "1 Warning", tone: "warning", variant: "solid" },
-      { text: "0 Incidents", tone: "success", variant: "soft" },
-    ] as BadgePill[],
+  // Hero comparison: the "N Open" severity pills → the count badges.
+  before: [
+    { text: "1 Open", tone: "danger" },
+    { text: "2 Open", tone: "warning" },
+    { text: "0 Open", tone: "success" },
+  ] satisfies BadgePill[],
+  after: [
+    { text: "### Incidents", tone: "danger" },
+    { text: "### Incidents", tone: "neutral" },
+  ] satisfies BadgePill[],
+  noIncidents: {
+    heading: "No incidents state",
+    // (verbatim)
+    oldText:
+      'The old form displayed a grey "0 Incident" badge to inform users of the absence of incidents, and clicking it offered only the option to report one.',
+    // (verbatim)
+    newText:
+      "The new form appears only on hover, so nothing distracts the user when there are no incidents, and clicking the triangle opens the report incident form with the workstation automatically filled in.",
   },
-  iterations: [
-    {
-      title: "Color coding",
-      // DRAFT
-      body: "A single neutral color gave every state the same weight. Mapping severity to color lets a manager read status without opening anything.",
-      before: [{ text: "3 Incidents", tone: "neutral", variant: "solid" }],
-      after: [{ text: "3 Critical", tone: "danger", variant: "solid" }],
-    },
-    {
-      title: "Cognitive load",
-      // DRAFT
-      body: "The verbose label forced reading. The final badge leads with the count and a state color; the wording moves into the card.",
-      before: [
-        { text: "3 Critical Incidents Reported", tone: "danger", variant: "soft" },
-      ],
-      after: [{ text: "3 Critical", tone: "danger", variant: "solid" }],
-    },
-    {
-      title: "Zero state",
-      // DRAFT
-      body: "The badge used to disappear with no incidents — indistinguishable from being broken. A quiet neutral badge makes \"no incidents\" an explicit, trustworthy state.",
-      before: [{ text: "", tone: "neutral", variant: "outline" }],
-      after: [{ text: "0 Incidents", tone: "success", variant: "soft" }],
-    },
-  ] satisfies BadgeIteration[],
 };
 
 export type Annotation = { title: string; body: string };
@@ -298,11 +251,14 @@ export const reportView = {
   } satisfies ShowcaseImage,
   // DRAFT
   body: "The original view led with the reporter's name and mirrored the form's input order. The redesign leads with what happened and how severe it was, groups the incident detail together, and moves the reporter into supporting metadata — keeping the focus on the incident, not the person.",
-  futureNote: {
-    title: "Future improvements",
-    // DRAFT
-    body: "With more time, the next steps would be attaching photos to reports, notifying assigned owners when status changes, and feeding resolved incidents into the analytics view automatically.",
-  },
+};
+
+export const futureImprovements = {
+  // (verbatim)
+  caption:
+    'For future improvements, we\'d like to add a blue "Needs Attention" badge, helping managers spot urgent incidents at a glance.',
+  // Video to be uploaded later; shows a labeled placeholder until then.
+  video: { src: "/videos/future-improvements.mp4", width: 16, height: 9 },
 };
 
 export const footer = {

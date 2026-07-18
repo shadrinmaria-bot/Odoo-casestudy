@@ -54,7 +54,7 @@ export default function AnnotatedShot({
       {highlight && !missing ? (
         <span
           aria-hidden
-          className="pointer-events-none absolute rounded-md border-2 border-accent shadow-[0_0_20px_rgba(95,224,176,0.35)]"
+          className="pointer-events-none absolute rounded-md border-2 border-accent"
           style={{
             left: `${highlight.left}%`,
             top: `${highlight.top}%`,

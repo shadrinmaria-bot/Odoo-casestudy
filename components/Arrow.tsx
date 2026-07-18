@@ -1,46 +1,54 @@
-/** Mint accent arrow used between "before" and "after" comparisons. */
+/** Thin mint/cyan arrow used between "before" and "after" comparisons. */
 export default function Arrow({
   direction = "right",
+  width,
+  height,
   className = "",
 }: {
   direction?: "right" | "down";
+  width?: number;
+  height?: number;
   className?: string;
 }) {
   if (direction === "down") {
+    const w = width ?? 24;
+    const h = height ?? 64;
     return (
       <svg
         aria-hidden
-        width="40"
-        height="60"
-        viewBox="0 0 40 60"
+        width={w}
+        height={h}
+        viewBox="0 0 24 64"
         fill="none"
         className={`text-accent ${className}`}
       >
-        <path d="M20 2v44" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
+        <path d="M12 2v48" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
         <path
-          d="M7 36l13 16 13-16"
+          d="M4 44l8 18 8-18"
           stroke="currentColor"
-          strokeWidth="3.5"
+          strokeWidth="2.5"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
       </svg>
     );
   }
+  const w = width ?? 96;
+  const h = height ?? 24;
   return (
     <svg
       aria-hidden
-      width="60"
-      height="28"
-      viewBox="0 0 60 28"
+      width={w}
+      height={h}
+      viewBox="0 0 96 24"
       fill="none"
       className={`text-accent ${className}`}
     >
-      <path d="M2 14h50" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
+      <path d="M2 12h86" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
       <path
-        d="M40 3l14 11-14 11"
+        d="M76 4l14 8-14 8"
         stroke="currentColor"
-        strokeWidth="3.5"
+        strokeWidth="2.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
