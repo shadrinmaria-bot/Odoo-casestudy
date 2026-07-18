@@ -51,10 +51,21 @@ export default function Hero() {
       {/* Meta row across the top */}
       <motion.div
         {...fade(0)}
-        className="relative z-10 mx-auto grid w-full max-w-[1021px] grid-cols-2 gap-x-8 gap-y-5 px-6 pt-24 md:h-24 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_261px_122px] md:gap-x-10 md:gap-y-0 md:px-10 md:pt-8"
+        className="relative z-10 mx-auto grid w-full max-w-[1280px] grid-cols-2 gap-x-8 gap-y-5 px-6 pt-24 md:h-24 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_261px_122px] md:gap-x-10 md:gap-y-0 md:px-10 md:pt-[52px] xl:grid-cols-[228px_287px_374px_167px]"
       >
-        {hero.projectMeta.map((item) => (
-          <div key={item.label}>
+        {hero.projectMeta.map((item, index) => (
+          <div
+            key={item.label}
+            className={
+              index === 0
+                ? "xl:w-[228px]"
+                : index === 1
+                  ? "xl:w-[198px]"
+                  : index === 2
+                    ? "xl:w-[276px]"
+                    : "xl:w-[167px]"
+            }
+          >
             <p className="font-display text-[20px] font-medium italic leading-5 text-white/90">
               {item.label}
             </p>
