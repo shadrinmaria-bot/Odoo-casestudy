@@ -27,9 +27,9 @@ export default function Home() {
           <FeatureSection key={feature.id} data={feature} />
         ))}
 
-        <Section id="design-decisions" className="bg-black py-20 md:py-24">
+        <Section id="design-decisions" className="bg-black py-28">
           <Reveal className="flex justify-center">
-            <h2 className="text-left font-display text-3xl font-bold tracking-tight md:text-5xl">
+            <h2 className="font-display text-4xl font-bold leading-[1] tracking-[-1.5px] md:text-[60px]">
               {designDecisions.heading}
             </h2>
           </Reveal>

@@ -171,7 +171,30 @@ export type BadgePill = { text: string; tone: BadgeTone };
 export const badgeIterations = {
   heading: "Incident Badge Design Iterations",
   intro:
-    "The badge sits on every work center card. It developed from a severity-heavy status into a faster, clearer signal.",
+    "The badge sits on every work center and is the element workers see most often. Each iteration made its state easier to read at a glance.",
+  overview: {
+    src: "/images/badge-iterations-overview.png",
+    alt: "The evolution of safety incident badges from open-state pills to compact incident badges",
+    width: 1011,
+    height: 198,
+  },
+  decisions: [
+    {
+      title: "Color coding",
+      body: "The new form uses two states, keeping urgency clear.",
+      kind: "colors",
+    },
+    {
+      title: "Cognitive load",
+      body: "The verbose label forced reading. The final badge leads with the count and a state color; the wording moves into the card.",
+      kind: "cognitive",
+    },
+    {
+      title: "Zero state",
+      body: "The badge was grey and had 0 Incidents, instead we’ve decided to make it hidden and appear on hover only, in case a report has to be made.",
+      kind: "zero",
+    },
+  ] as const,
   // Hero comparison: the "N Open" severity pills → the count badges.
   before: [
     { text: "1 Open", tone: "danger" },
@@ -206,21 +229,28 @@ export const formDecisions = {
     width: 2120,
     height: 1610,
   },
+  before: {
+    src: "/images/report-form-before.png",
+    alt: "The original safety incident report form",
+    width: 572,
+    height: 498,
+  },
+  after: {
+    src: "/images/report-form-after.png",
+    alt: "The redesigned safety incident report form in two completed states",
+    width: 1200,
+    height: 576,
+  },
   annotations: [
     {
       title: "Error feedback",
       // DRAFT
-      body: "Validation happens inline, next to the field that needs attention, instead of a generic banner after submit.",
+      body: "specific inline error messages directly below each field, telling the user precisely what's needed.",
     },
     {
       title: "Time of incident",
       // DRAFT
-      body: "A structured time picker (defaulting to now) replaced free-text entry, producing consistent, usable data.",
-    },
-    {
-      title: "Submit hierarchy",
-      // DRAFT
-      body: "Submitting is the single primary action; discard is demoted to a quiet secondary control.",
+      body: "a dedicated time dropdown, ensuring every report captures a complete picture of when the incident occurred.",
     },
   ] satisfies Annotation[],
 };
@@ -257,7 +287,7 @@ export const futureImprovements = {
   heading: "Future Improvements",
   // (verbatim)
   caption:
-    'For future improvements, we\'d like to add a blue "Needs Attention" badge, helping managers spot urgent incidents at a glance.',
+    "For future improvements we’d like to connect the report from Manufacturing to the Odoo HR Module to be able to view the incident investigation and how it’s resolved.",
   // Video to be uploaded later; shows a labeled placeholder until then.
   video: { src: "/videos/future-improvements.mp4", width: 16, height: 9 },
 };

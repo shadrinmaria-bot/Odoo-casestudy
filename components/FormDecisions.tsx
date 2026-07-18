@@ -1,45 +1,43 @@
 import Asset from "@/components/Asset";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
-import SectionHeading from "@/components/SectionHeading";
 import { formDecisions } from "@/lib/content";
 
 export default function FormDecisions() {
   return (
-    <Section id="design-form" className="bg-black py-24 md:py-28">
-      <SectionHeading title={formDecisions.heading} intro={formDecisions.intro} />
-      <div className="mt-12 grid items-center gap-10 md:grid-cols-[1.1fr_0.9fr] md:gap-16">
+    <Section id="design-form" className="bg-black px-6 py-28 md:px-10">
+      <Reveal>
+        <h2 className="font-display text-3xl font-bold leading-tight tracking-[-1.2px] md:text-5xl md:leading-[48px]">
+          {formDecisions.heading}
+        </h2>
+        <p className="mt-4 max-w-[672px] text-base leading-7 text-muted md:text-lg">
+          {formDecisions.intro}
+        </p>
+      </Reveal>
+
+      <div className="mt-14 grid items-center gap-10 md:grid-cols-[572px_1fr] md:gap-14">
         <Reveal direction="left">
-          <Asset
-            {...formDecisions.image}
-            className="rounded-lg border border-line bg-surface p-3 shadow-2xl"
-          />
+          <Asset {...formDecisions.before} />
         </Reveal>
-        <Reveal direction="right" delay={0.1} className="flex flex-col justify-center">
-          <ul className="space-y-10">
-            {formDecisions.annotations.map((a) => (
-              <li key={a.title}>
-                <h3 className="font-display text-base font-bold tracking-tight md:text-lg">
+        <Reveal direction="right" delay={0.1}>
+          <ul className="space-y-8">
+            {formDecisions.annotations.map((annotation) => (
+              <li key={annotation.title}>
+                <h3 className="font-display text-xl font-bold leading-7 tracking-[-0.5px]">
                   <span className="mr-3 text-accent">—</span>
-                  {a.title}
+                  {annotation.title}
                 </h3>
-                <p className="mt-2 pl-8 text-sm leading-relaxed text-muted">
-                  {a.body}
+                <p className="mt-2 max-w-[540px] pl-8 text-base leading-6 text-muted">
+                  {annotation.body}
                 </p>
               </li>
             ))}
           </ul>
         </Reveal>
       </div>
-      <Reveal className="mt-14 rounded-lg border border-accent/20 bg-accent-soft p-4 md:p-8">
-        <div className="grid gap-6 md:grid-cols-2">
-          <div className="rounded-md bg-[#151922] p-3">
-            <Asset {...formDecisions.image} />
-          </div>
-          <div className="rounded-md bg-[#151922] p-3">
-            <Asset {...formDecisions.image} />
-          </div>
-        </div>
+
+      <Reveal className="mt-14">
+        <Asset {...formDecisions.after} />
       </Reveal>
     </Section>
   );
