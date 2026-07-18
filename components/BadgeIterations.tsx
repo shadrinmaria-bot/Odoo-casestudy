@@ -35,7 +35,7 @@ function OpenBadge({ children, tone }: { children: string | number; tone: "red" 
 
 function WorkflowArrow() {
   // Same arrow shape/stroke as everywhere else, sized to the badge row.
-  return <Arrow direction="right" width={36} height={24} className="shrink-0" />;
+  return <Arrow direction="right" size={38} className="shrink-0" />;
 }
 
 function OpenedBadge({ count, tone }: { count: 0 | 1 | 2; tone: "red" | "amber" | "grey" }) {
@@ -97,7 +97,7 @@ function DecisionVisual({ kind }: { kind: "colors" | "cognitive" | "zero" }) {
           <OpenBadge tone="amber">2 Open</OpenBadge>
           <OpenBadge tone="red">1 Open</OpenBadge>
         </div>
-        <Arrow direction="right" width={60} height={40} />
+        <Arrow direction="right" size={56} />
         <div className="flex flex-col gap-2">
           <IncidentBadge tone="red">1 Incident</IncidentBadge>
           <IncidentBadge tone="blue">2 Incident</IncidentBadge>
@@ -112,7 +112,7 @@ function DecisionVisual({ kind }: { kind: "colors" | "cognitive" | "zero" }) {
         <span className="inline-flex h-6 items-center rounded bg-[#F9464C] px-3 text-[13px] font-semibold text-black">
           1 Opened Incidents&nbsp;<span aria-hidden className="font-awesome-solid text-[8px]">{`\uF0D8`}</span>
         </span>
-        <Arrow direction="right" width={60} height={40} />
+        <Arrow direction="right" size={56} />
         <IncidentBadge tone="red">1 Incident</IncidentBadge>
       </div>
     );
@@ -121,7 +121,7 @@ function DecisionVisual({ kind }: { kind: "colors" | "cognitive" | "zero" }) {
   return (
     <div className="flex items-center justify-center gap-12">
       <IncidentBadge tone="grey">0 Incident</IncidentBadge>
-      <Arrow direction="right" width={60} height={40} />
+      <Arrow direction="right" size={56} />
       <span className="rounded-full border border-line px-4 py-1 text-xs italic text-faint opacity-60">hidden</span>
     </div>
   );

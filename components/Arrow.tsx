@@ -1,50 +1,49 @@
 /**
- * Mint arrow from the Figma spec (node 8:113): a straight stem ending in a
- * wide V-shaped head, round caps, drawn on a 40×60 canvas pointing down.
- * Other directions are the same shape rotated.
+ * The bold cyan arrow from the reference: a thick rounded stem ending in a
+ * wide V head. Defined on a small viewBox so a strokeWidth of 3 reads as a
+ * bold ~23%-of-width stroke, and scales up thick. One shape, four
+ * directions (the same arrow rotated).
  */
 const paths = {
-  down: { w: 40, h: 60, stem: "M20 2V53", head: "M4 37L20 56L36 37" },
-  up: { w: 40, h: 60, stem: "M20 58V7", head: "M4 23L20 4L36 23" },
-  right: { w: 60, h: 40, stem: "M2 20H53", head: "M37 4L56 20L37 36" },
-  left: { w: 60, h: 40, stem: "M58 20H7", head: "M23 4L4 20L23 36" },
+  down: { vw: 13, vh: 16, stem: "M6.5 3V11.5", head: "M3.5 7.5L6.5 12.5L9.5 7.5" },
+  up: { vw: 13, vh: 16, stem: "M6.5 13V4.5", head: "M3.5 8.5L6.5 3.5L9.5 8.5" },
+  right: { vw: 16, vh: 13, stem: "M3 6.5H11.5", head: "M7.5 3.5L12.5 6.5L7.5 9.5" },
+  left: { vw: 16, vh: 13, stem: "M13 6.5H4.5", head: "M8.5 3.5L3.5 6.5L8.5 9.5" },
 } as const;
 
 export default function Arrow({
   direction = "down",
-  width,
-  height,
+  size,
   className = "",
 }: {
   direction?: keyof typeof paths;
-  width?: number;
-  height?: number;
+  /** Extent along the pointing axis in px (height for up/down, width for
+   *  left/right). The cross dimension is derived to keep the shape true. */
+  size?: number;
   className?: string;
 }) {
   const p = paths[direction];
+  const vertical = direction === "down" || direction === "up";
+  const long = size ?? (vertical ? 54 : 60);
+  const width = vertical ? (long * p.vw) / p.vh : long;
+  const height = vertical ? long : (long * p.vh) / p.vw;
+
   return (
     <svg
       aria-hidden
-      width={width ?? p.w}
-      height={height ?? p.h}
-      viewBox={`0 0 ${p.w} ${p.h}`}
+      width={width}
+      height={height}
+      viewBox={`0 0 ${p.vw} ${p.vh}`}
       fill="none"
       className={`text-accent ${className}`}
     >
-      <path
-        d={p.stem}
-        stroke="currentColor"
-        strokeWidth="3"
-        strokeLinecap="round"
-        vectorEffect="non-scaling-stroke"
-      />
+      <path d={p.stem} stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
       <path
         d={p.head}
         stroke="currentColor"
         strokeWidth="3"
         strokeLinecap="round"
         strokeLinejoin="round"
-        vectorEffect="non-scaling-stroke"
       />
     </svg>
   );
