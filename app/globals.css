@@ -17,3 +17,25 @@ html {
   background-color: #5fe0b0;
   color: #08130e;
 }
+
+/* Typography: no orphan words anywhere on the page.
+   `pretty` avoids a lone word on the last line of running text;
+   `balance` evens out heading line lengths. Both degrade gracefully
+   in browsers that don't support them. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+p,
+li,
+blockquote,
+figcaption,
+dt,
+dd {
+  text-wrap: pretty;
+}
