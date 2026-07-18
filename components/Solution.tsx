@@ -1,4 +1,4 @@
-import Asset from "@/components/Asset";
+import AnnotatedShot from "@/components/AnnotatedShot";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
 import { solution } from "@/lib/content";
@@ -16,8 +16,8 @@ export default function Solution() {
           </p>
         </div>
       </Reveal>
-      <Reveal delay={0.15} className="mx-auto mt-10 max-w-md">
-        <Asset {...solution.image} />
+      <Reveal delay={0.15} className="mx-auto mt-10 max-w-5xl">
+        <AnnotatedShot {...solution.image} />
       </Reveal>
     </Section>
   );

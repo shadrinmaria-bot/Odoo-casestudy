@@ -90,10 +90,12 @@ export const solution = {
   // (verbatim, from the reference screenshot)
   body: "We added a safety layer to Odoo's Overview, embedding safety data to help track patterns and reduce future incidents.",
   image: {
-    src: "/images/solution-reporting-safety.png",
+    src: "/images/solution.png",
     alt: "The reporting menu with a new Safety Statistics entry added",
-    width: 460,
-    height: 252,
+    width: 2527,
+    height: 1321,
+    // Cyan stroke over the new "Safety Statistics" menu item.
+    highlight: { left: 29.5, top: 9.4, width: 13.6, height: 5 },
   },
 };
 
@@ -143,21 +145,21 @@ export const featureSections: FeatureSectionData[] = [
     heading: "Incident Reporting",
     videoSide: "left",
     caption: "One click logs the incident and instantly notifies EHS staff.",
-    video: { src: "/videos/safety-analytics.mp4", width: 16, height: 10 },
+    video: { src: "/videos/1.mp4", width: 16, height: 10 },
   },
   {
     id: "incident-tracking",
     heading: "Incident Tracking",
     videoSide: "right",
     caption: "Track every incident, from report to resolution, in one place.",
-    video: { src: "/videos/incident-tracking.mp4", width: 16, height: 10 },
+    video: { src: "/videos/2.mp4", width: 16, height: 10 },
   },
   {
     id: "safety-analytics",
     heading: "Safety Analytics",
     videoSide: "left",
     caption: "Visualize incident trends to catch patterns before they repeat.",
-    video: { src: "/videos/incident-reporting.mp4", width: 16, height: 10 },
+    video: { src: "/videos/3.mp4", width: 16, height: 10 },
   },
 ];
 

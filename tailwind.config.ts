@@ -15,9 +15,10 @@ const config: Config = {
     extend: {
       colors: {
         // page + surfaces (dark)
-        paper: "#0C0C0E",
+        // every section uses the same background per the design
+        paper: "#11141B",
         surface: "#141418",
-        "surface-alt": "#111114",
+        "surface-alt": "#11141B",
         // feature-section background (slightly blue-black, per reference)
         panel: "#11141B",
         // text
