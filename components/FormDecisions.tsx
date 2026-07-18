@@ -3,6 +3,50 @@ import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
 import { formDecisions } from "@/lib/content";
 
+function AfterFormCard() {
+  return (
+    <div className="relative aspect-[1200/576] w-full overflow-hidden rounded-card">
+      <svg
+        aria-hidden
+        viewBox="0 0 1200 576"
+        className="absolute inset-0 size-full"
+        preserveAspectRatio="none"
+      >
+        <rect
+          x="0.5"
+          y="0.5"
+          width="1199"
+          height="575"
+          rx="16"
+          fill="#2FFFD5"
+          fillOpacity="0.12"
+          stroke="#2FFFD5"
+          strokeOpacity="0.3"
+        />
+        <rect x="17" y="18" width="68" height="24" rx="12" fill="#2FFFD5" />
+        <text
+          x="29"
+          y="34"
+          fill="#08130E"
+          fontFamily="Hanken Grotesk, sans-serif"
+          fontSize="12"
+          fontWeight="600"
+          letterSpacing="1.68"
+        >
+          AFTER
+        </text>
+      </svg>
+
+      <div className="absolute left-[4.25%] top-[13.55%] w-[47.67%]">
+        <Asset {...formDecisions.image} className="rounded-card" />
+      </div>
+      <div className="absolute left-[58.17%] top-[21.88%] aspect-[434/329] w-[36.17%] overflow-hidden rounded-card">
+        <Asset {...formDecisions.validation} className="h-full rounded-card object-cover" />
+      </div>
+    </div>
+  );
+}
+
 export default function FormDecisions() {
   return (
     <Section id="design-form" className="bg-black px-6 py-28 md:px-10">
@@ -37,7 +81,7 @@ export default function FormDecisions() {
       </div>
 
       <Reveal className="mt-14">
-        <Asset {...formDecisions.after} />
+        <AfterFormCard />
       </Reveal>
     </Section>
   );

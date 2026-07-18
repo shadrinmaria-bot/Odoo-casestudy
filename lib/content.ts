@@ -229,11 +229,11 @@ export const formDecisions = {
     width: 572,
     height: 498,
   },
-  after: {
-    src: "/images/report-form-after.svg",
-    alt: "The redesigned safety incident report form in two completed states",
-    width: 1200,
-    height: 576,
+  validation: {
+    src: "/images/report-form-validation.png",
+    alt: "The safety incident report form showing inline validation feedback",
+    width: 3022,
+    height: 1714,
   },
   annotations: [
     {
