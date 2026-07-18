@@ -35,20 +35,7 @@ function OpenBadge({ children, tone }: { children: string | number; tone: "red" 
 
 function WorkflowArrow({ long = false }: { long?: boolean }) {
   return (
-    <svg
-      aria-hidden
-      viewBox={long ? "0 0 52 20" : "0 0 30 20"}
-      className={long ? "h-5 w-[52px] shrink-0" : "h-5 w-[30px] shrink-0"}
-      fill="none"
-    >
-      <path
-        d={long ? "M1 10H48M40 2L49 10L40 18" : "M1 10H26M18 2L27 10L18 18"}
-        stroke="#2FFFD5"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+    <Arrow direction="right" width={long ? 52 : 30} height={20} className="shrink-0" />
   );
 }
 
@@ -111,7 +98,7 @@ function DecisionVisual({ kind }: { kind: "colors" | "cognitive" | "zero" }) {
           <OpenBadge tone="amber">2 Open</OpenBadge>
           <OpenBadge tone="red">1 Open</OpenBadge>
         </div>
-        <Arrow direction="right" width={60} height={28} />
+        <Arrow direction="right" width={60} height={40} />
         <div className="flex flex-col gap-2">
           <IncidentBadge tone="red">1 Incident</IncidentBadge>
           <IncidentBadge tone="blue">2 Incident</IncidentBadge>
@@ -126,7 +113,7 @@ function DecisionVisual({ kind }: { kind: "colors" | "cognitive" | "zero" }) {
         <span className="inline-flex h-6 items-center rounded bg-[#F9464C] px-3 text-[13px] font-semibold text-black">
           1 Opened Incidents&nbsp;<span aria-hidden className="font-awesome-solid text-[8px]">{`\uF0D8`}</span>
         </span>
-        <Arrow direction="right" width={60} height={28} />
+        <Arrow direction="right" width={60} height={40} />
         <IncidentBadge tone="red">1 Incident</IncidentBadge>
       </div>
     );
@@ -135,7 +122,7 @@ function DecisionVisual({ kind }: { kind: "colors" | "cognitive" | "zero" }) {
   return (
     <div className="flex items-center justify-center gap-12">
       <IncidentBadge tone="grey">0 Incident</IncidentBadge>
-      <Arrow direction="right" width={60} height={28} />
+      <Arrow direction="right" width={60} height={40} />
       <span className="rounded-full border border-line px-4 py-1 text-xs italic text-faint opacity-60">hidden</span>
     </div>
   );
