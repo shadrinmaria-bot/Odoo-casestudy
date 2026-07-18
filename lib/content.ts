@@ -14,11 +14,6 @@ export const meta = {
     "A safety management feature built into Odoo Manufacturing. UX case study.",
 };
 
-export const nav = {
-  logoText: "Odoo Manufacturing",
-  homeLabel: "Home",
-};
-
 export const hero = {
   projectMeta: [
     { label: "Platform", value: "Desktop Web Application" },
@@ -33,7 +28,6 @@ export const hero = {
   kicker: "A safety management feature built into Odoo Manufacturing", // (verbatim)
   headlineLine1: "Spot safety patterns", // (verbatim)
   headlineLine2: "Before they escalate", // (verbatim)
-  statement: "SPOT THE PATTERN, PREVENT INJURIES", // (verbatim)
   image: {
     src: "/images/hero-background.jpg",
     alt: "A worker in a hard hat and hi-vis vest using Odoo on a laptop in a factory",

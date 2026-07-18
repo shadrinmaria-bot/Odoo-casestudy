@@ -17,7 +17,6 @@ import { designDecisions, featureSections } from "@/lib/content";
 export default function Home() {
   return (
     <>
-      <Header />
       <main>
         <Hero />
         <Background />
