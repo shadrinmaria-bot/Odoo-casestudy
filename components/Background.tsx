@@ -5,7 +5,7 @@ export default function Background() {
   return (
     <section
       id="background"
-      className="bg-black px-6 py-24 md:px-10 md:py-40"
+      className="bg-panel px-6 py-24 md:px-10 md:py-40"
     >
       <div className="mx-auto max-w-[768px] text-left">
         <Reveal>

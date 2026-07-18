@@ -35,7 +35,7 @@ function Pane({
 
 export default function ReportView() {
   return (
-    <Section id="design-report-view" className="bg-[#101014] py-24 md:py-28">
+    <Section id="design-report-view" className="bg-panel py-24 md:py-28">
       <SectionHeading title={reportView.heading} intro={reportView.intro} />
       <Reveal className="mt-10">
         <div className="grid gap-6 md:grid-cols-2">

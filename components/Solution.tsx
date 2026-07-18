@@ -5,7 +5,7 @@ import { solution } from "@/lib/content";
 
 export default function Solution() {
   return (
-    <Section id="solution" className="bg-black py-24 md:py-28">
+    <Section id="solution" className="bg-panel py-24 md:py-28">
       <Reveal>
         <div className="mx-auto max-w-3xl text-left">
           <p className="mb-6 text-center text-lg font-bold uppercase leading-4 tracking-[2.4px] text-accent md:text-2xl">

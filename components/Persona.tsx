@@ -5,7 +5,7 @@ import { persona } from "@/lib/content";
 
 export default function Persona() {
   return (
-    <Section id="persona" className="bg-black py-24 md:py-28">
+    <Section id="persona" className="bg-panel py-24 md:py-28">
       <Reveal>
         <h2 className="font-display text-3xl font-semibold tracking-tight md:text-5xl">
           {persona.heading}

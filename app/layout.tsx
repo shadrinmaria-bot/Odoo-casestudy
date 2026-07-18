@@ -24,7 +24,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={hanken.variable}>
-      <body className="bg-paper font-sans text-ink antialiased">
+      <body className="bg-panel font-sans text-ink antialiased">
         {children}
       </body>
     </html>

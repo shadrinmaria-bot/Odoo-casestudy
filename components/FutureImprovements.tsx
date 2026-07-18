@@ -4,7 +4,7 @@ import { futureImprovements } from "@/lib/content";
 
 export default function FutureImprovements() {
   return (
-    <Section id="future-improvements" className="bg-[#111114] pb-0 pt-14">
+    <Section id="future-improvements" className="bg-panel pb-0 pt-14">
       <Reveal className="flex flex-col items-center">
         <div className="w-full max-w-[575px] text-left">
           <h2 className="text-center font-display text-3xl font-bold leading-[48px] tracking-[-1.2px] md:text-[48px]">

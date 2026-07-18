@@ -143,7 +143,7 @@ function DecisionVisual({ kind }: { kind: "colors" | "cognitive" | "zero" }) {
 
 export default function BadgeIterations() {
   return (
-    <Section id="design-badge" className="bg-[#111114] px-6 py-28 md:px-[50px]">
+    <Section id="design-badge" className="bg-panel px-6 py-28 md:px-[50px]">
       <Reveal>
         <h2 className="font-display text-3xl font-bold leading-tight tracking-[-1.2px] md:text-5xl md:leading-[48px]">
           {badgeIterations.heading}

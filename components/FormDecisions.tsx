@@ -49,7 +49,7 @@ function AfterFormCard() {
 
 export default function FormDecisions() {
   return (
-    <Section id="design-form" className="bg-black px-6 py-28 md:px-10">
+    <Section id="design-form" className="bg-panel px-6 py-28 md:px-10">
       <Reveal>
         <h2 className="font-display text-3xl font-bold leading-tight tracking-[-1.2px] md:text-5xl md:leading-[48px]">
           {formDecisions.heading}
