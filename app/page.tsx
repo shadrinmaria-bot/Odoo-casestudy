@@ -7,6 +7,7 @@ import Hero from "@/components/Hero";
 import Persona from "@/components/Persona";
 import Problem from "@/components/Problem";
 import RootCauses from "@/components/RootCauses";
+import Showcase from "@/components/Showcase";
 import Solution from "@/components/Solution";
 import StatCallout from "@/components/StatCallout";
 import {
@@ -28,20 +29,24 @@ export default function Home() {
         <RootCauses />
         <Persona />
         <FeatureOverview />
-        <DesignDecisions
+        <Showcase
           id="design-badge"
           kicker={badgeDecisions.kicker}
           heading={badgeDecisions.heading}
           intro={badgeDecisions.intro}
-          comparisons={badgeDecisions.comparisons}
+          images={badgeDecisions.images}
+          points={badgeDecisions.points}
           alt
+          mediaFirst
         />
-        <DesignDecisions
+        <Showcase
           id="design-form"
           kicker={formDecisions.kicker}
           heading={formDecisions.heading}
           intro={formDecisions.intro}
-          comparisons={formDecisions.comparisons}
+          images={formDecisions.images}
+          points={formDecisions.points}
+          mediaFirst={false}
         />
         <DesignDecisions
           id="design-report-view"

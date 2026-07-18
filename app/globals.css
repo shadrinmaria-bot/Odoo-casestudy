@@ -2,11 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Body and display share one family (Wix Madefor stand-in). */
+  --font-display: var(--font-sans);
+  color-scheme: dark;
+}
+
 html {
   scroll-behavior: smooth;
+  background-color: #0c0c0e;
 }
 
 ::selection {
-  background-color: #714b67;
-  color: #ffffff;
+  background-color: #5fe0b0;
+  color: #08130e;
 }

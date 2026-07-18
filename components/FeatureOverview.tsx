@@ -1,7 +1,7 @@
-import Asset from "@/components/Asset";
 import Reveal from "@/components/Reveal";
 import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
+import VideoAsset from "@/components/VideoAsset";
 import { features } from "@/lib/content";
 
 export default function FeatureOverview() {
@@ -11,11 +11,14 @@ export default function FeatureOverview() {
       <div className="mt-12 grid gap-6 md:grid-cols-3">
         {features.items.map((feature, i) => (
           <Reveal key={feature.title} delay={i * 0.12}>
-            <div className="group h-full overflow-hidden rounded-card border border-line bg-surface shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
-              <div className="overflow-hidden">
-                <Asset
-                  {...feature.image}
-                  className="rounded-b-none transition-transform duration-500 group-hover:scale-[1.03]"
+            <div className="group h-full overflow-hidden rounded-card border border-line bg-surface shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-md">
+              <div className="overflow-hidden border-b border-line">
+                <VideoAsset
+                  src={feature.video.src}
+                  width={feature.video.width}
+                  height={feature.video.height}
+                  label={`${feature.title} demo`}
+                  className="rounded-none transition-transform duration-500 group-hover:scale-[1.03]"
                 />
               </div>
               <div className="p-6">

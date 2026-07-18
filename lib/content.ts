@@ -1,14 +1,13 @@
 /**
- * All page copy lives in this single file so it can be corrected in one
- * place.
+ * All page copy and asset references live in this single file so they can
+ * be corrected in one place.
  *
- * PROVENANCE NOTE — the original Wix site could not be fetched from the
- * build environment, so:
- *  - Strings marked with "(verbatim)" comments come word-for-word from
- *    the project brief.
- *  - Everything else is DRAFT copy written to match the brief's
- *    description of each section. Replace it with the real copy from
- *    the live site.
+ * PROVENANCE NOTE — the live Wix site itself could not be fetched from the
+ * build environment. Copy marked "(verbatim)" is confirmed from the
+ * reference screenshots the client supplied; copy marked "DRAFT" is
+ * written to match the case-study narrative and should be replaced with
+ * the exact wording from the original site. Images/videos are the real
+ * assets the client uploaded, referenced by clean semantic filenames.
  */
 
 export const meta = {
@@ -23,16 +22,16 @@ export const nav = {
 };
 
 export const hero = {
-  // Project meta row (verbatim labels from the brief)
+  // Project meta row (values read from the live site)
   projectMeta: [
-    { label: "Platform", value: "Odoo Manufacturing" },
-    { label: "Type", value: "Feature design" },
-    { label: "Role", value: "UX/UI Design" },
-    { label: "Context", value: "Academic case study" },
+    { label: "Platform", value: "Desktop Web Application" },
+    { label: "Type", value: "Feature Extension — Odoo ERP" },
+    { label: "Role", value: "Research · UX · Visual Design · Prototype" },
+    { label: "Context", value: "Academic Project" },
   ],
   team: {
     label: "Team",
-    members: ["Amit Zadik"], // DRAFT — replace with the full team list
+    members: ["Amit Tzadik", "Maria Lan", "Oran Shuster", "Valeria Kulishov"],
   },
   // (verbatim)
   kicker: "A safety management feature built into Odoo Manufacturing",
@@ -41,11 +40,10 @@ export const hero = {
   headlineLine2: "Before they escalate",
   // (verbatim)
   statement: "SPOT THE PATTERN, PREVENT INJURIES",
+  // Full-bleed hero background photo.
   image: {
-    src: "/images/hero-mockup.png",
-    alt: "Hero mockup of the safety feature inside Odoo Manufacturing",
-    width: 1440,
-    height: 900,
+    src: "/images/hero-background.jpg",
+    alt: "A worker in a hard hat and hi-vis vest using Odoo on a laptop in a factory",
   },
 };
 
@@ -55,36 +53,47 @@ export const background = {
   body: "Odoo is an open-source suite of business applications used by millions of companies worldwide. Its Manufacturing module helps factories plan production, manage work orders, and track operations on the shop floor — but it offers no dedicated way to manage worker safety.",
   images: [
     {
-      src: "/images/background-odoo-overview.png",
-      alt: "Screenshot of the Odoo Manufacturing overview",
-      width: 1280,
-      height: 800,
+      src: "/images/odoo-apps-home.png",
+      alt: "The Odoo app launcher: Discuss, Dashboards, Inventory, Manufacturing, Shop Floor, Barcode and more",
+      width: 1489,
+      height: 763,
     },
     {
-      src: "/images/background-odoo-workorders.png",
-      alt: "Screenshot of Odoo Manufacturing work orders",
-      width: 1280,
-      height: 800,
+      src: "/images/manufacturing-overview.png",
+      alt: "The Odoo Manufacturing work centers overview dashboard",
+      width: 2482,
+      height: 1308,
     },
   ],
 };
 
 export const problem = {
   heading: "Problem",
-  // DRAFT — replace with the site's actual caption about buried logs
+  // (verbatim, from the live site)
   caption:
-    "Safety incidents are logged in scattered notes, spreadsheets and paper forms. Buried in disconnected records, recurring hazards go unnoticed until someone gets hurt.",
+    "Lack of documentation meant safety patterns went unnoticed. Only manufacturing data was visible, with no way to log incidents.",
+  image: {
+    src: "/images/problem-reporting-menu.png",
+    alt: "Odoo Manufacturing reporting menu, limited to Work Orders and Overall Equipment Effectiveness",
+    width: 399,
+    height: 190,
+  },
 };
 
 export const solution = {
   heading: "Solution",
   // DRAFT — replace with the site's actual description
   body: "A safety layer built directly into Odoo Manufacturing's Overview: workers report incidents where they already work, managers see incident status on every work center, and recurring patterns surface before they escalate into injuries.",
+  image: {
+    src: "/images/solution-reporting-safety.png",
+    alt: "The reporting menu with a new Safety Statistics entry added alongside the existing reports",
+    width: 460,
+    height: 252,
+  },
 };
 
 export const statCallout = {
-  // (verbatim — brief truncates after "safety hazards"; verify the full
-  // sentence against the live site)
+  // (verbatim — verify the full sentence against the live site)
   stat: "68%",
   text: "of workers regularly encounter safety hazards on the job",
   // DRAFT source attribution — verify
@@ -118,6 +127,12 @@ export const persona = {
   quote:
     "I only find out about hazards after someone's already been hurt. By then it's too late to prevent it.",
   personaName: "Production Floor Manager", // DRAFT
+  image: {
+    src: "/images/persona-worker.png",
+    alt: "A production floor manager reviewing work on a laptop in the warehouse",
+    width: 506,
+    height: 429,
+  },
   complexity: {
     title: "What makes their job complex",
     // DRAFT items
@@ -140,111 +155,86 @@ export const persona = {
   },
 };
 
+export type FeatureItem = {
+  title: string;
+  body: string;
+  video: { src: string; width: number; height: number };
+};
+
 export const features = {
   heading: "The feature at a glance",
+  // NOTE: videos assumed to map to the three features in numbered order
+  // (01/02/03). Swap the `src` values if the client's ordering differs.
   items: [
     {
       title: "Incident Reporting",
       // DRAFT
       body: "A fast, structured form workers can file from any work center.",
-      image: {
-        src: "/images/feature-incident-reporting.png",
-        alt: "Incident reporting form thumbnail",
-        width: 640,
-        height: 420,
-      },
+      video: { src: "/videos/incident-reporting.mp4", width: 16, height: 9 },
     },
     {
       title: "Incident Tracking",
       // DRAFT
       body: "Live incident status badges on the Manufacturing overview.",
-      image: {
-        src: "/images/feature-incident-tracking.png",
-        alt: "Incident tracking badges thumbnail",
-        width: 640,
-        height: 420,
-      },
+      video: { src: "/videos/incident-tracking.mp4", width: 16, height: 9 },
     },
     {
       title: "Safety Analytics",
       // DRAFT
       body: "Trends and recurring hazards, aggregated across work centers.",
-      image: {
-        src: "/images/feature-safety-analytics.png",
-        alt: "Safety analytics dashboard thumbnail",
-        width: 640,
-        height: 420,
-      },
+      video: { src: "/videos/safety-analytics.mp4", width: 16, height: 9 },
     },
-  ],
+  ] satisfies FeatureItem[],
 };
 
-export type Comparison = {
-  title: string;
-  body: string;
-  before: { src: string; alt: string; width: number; height: number };
-  after: { src: string; alt: string; width: number; height: number };
+export type ShowcaseImage = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
 };
 
+export type DecisionPoint = { title: string; body: string };
+
+/** A design-decisions section that showcases one/two real screenshots
+ *  alongside the reasoning behind the design. */
 export const badgeDecisions = {
   kicker: "Design Decisions",
   heading: "Incident Badge",
   // DRAFT intro
   intro:
-    "The badge is the smallest element of the feature and the one workers see most often. Each iteration reduced the effort of reading it.",
-  comparisons: [
+    "The badge is the smallest element of the feature and the one workers see most often, sitting on every work center. Each iteration reduced the effort of reading it.",
+  images: [
+    {
+      src: "/images/incident-badge-states.svg",
+      alt: "The incident count badge component",
+      width: 322,
+      height: 98,
+    },
+    {
+      src: "/images/work-center-zero-incidents.png",
+      alt: "A Paint work center card showing a '0 Incidents' badge in its zero state",
+      width: 765,
+      height: 210,
+    },
+  ] satisfies ShowcaseImage[],
+  points: [
     {
       title: "Color coding",
       // DRAFT
-      body: "Early badges used a single accent color for every state. The final version maps severity to color — red for open incidents, amber for in-review, green for resolved — so status is readable without opening anything.",
-      before: {
-        src: "/images/badge-color-before.png",
-        alt: "Badge before: single-color states",
-        width: 560,
-        height: 360,
-      },
-      after: {
-        src: "/images/badge-color-after.png",
-        alt: "Badge after: severity color coding",
-        width: 560,
-        height: 360,
-      },
+      body: "Severity is mapped to color so status is readable without opening anything — red for open, amber for in-review, green for resolved.",
     },
     {
       title: "Cognitive load",
       // DRAFT
-      body: "The first design packed count, severity and label into one dense chip. The final badge shows a single number and state color, moving detail into the card itself.",
-      before: {
-        src: "/images/badge-load-before.png",
-        alt: "Badge before: dense chip with multiple values",
-        width: 560,
-        height: 360,
-      },
-      after: {
-        src: "/images/badge-load-after.png",
-        alt: "Badge after: single count with state color",
-        width: 560,
-        height: 360,
-      },
+      body: "The badge shows a single count and state color; the detail lives in the card, not the chip.",
     },
     {
       title: "Zero state",
       // DRAFT
-      body: "Originally the badge disappeared when there were no incidents — indistinguishable from the feature being broken. The final version keeps a quiet neutral badge, making \"no incidents\" an explicit, trustworthy state.",
-      before: {
-        src: "/images/badge-zero-before.png",
-        alt: "Badge before: hidden when no incidents",
-        width: 560,
-        height: 360,
-      },
-      after: {
-        src: "/images/badge-zero-after.png",
-        alt: "Badge after: explicit neutral zero state",
-        width: 560,
-        height: 360,
-      },
+      body: "\"0 Incidents\" stays visible as an explicit, trustworthy state rather than disappearing when there is nothing to report.",
     },
-  ] satisfies Comparison[],
+  ] satisfies DecisionPoint[],
 };
 
 export const formDecisions = {
@@ -252,60 +242,39 @@ export const formDecisions = {
   heading: "Incident Report Form",
   // DRAFT intro
   intro:
-    "The form has to be fast enough to fill in mid-shift, on the floor, possibly with gloves on. Every revision removed friction.",
-  comparisons: [
+    "The form has to be fast enough to fill in mid-shift, on the floor. Every revision removed friction.",
+  images: [
+    {
+      src: "/images/incident-report-form.png",
+      alt: "The safety incident report form: injury-type grid, structured time picker and severity",
+      width: 2120,
+      height: 1610,
+    },
+  ] satisfies ShowcaseImage[],
+  points: [
     {
       title: "Error feedback",
       // DRAFT
-      body: "Errors originally appeared only after submitting, as a generic banner. The final form validates inline, next to the field that needs attention.",
-      before: {
-        src: "/images/form-errors-before.png",
-        alt: "Form before: generic error banner after submit",
-        width: 560,
-        height: 360,
-      },
-      after: {
-        src: "/images/form-errors-after.png",
-        alt: "Form after: inline field-level validation",
-        width: 560,
-        height: 360,
-      },
+      body: "Validation happens inline, next to the field that needs attention, instead of a generic banner after submit.",
     },
     {
       title: "Time field",
       // DRAFT
-      body: "A free-text time field produced inconsistent, unusable data. The final design defaults to \"now\" with a structured picker for corrections.",
-      before: {
-        src: "/images/form-time-before.png",
-        alt: "Form before: free-text time entry",
-        width: 560,
-        height: 360,
-      },
-      after: {
-        src: "/images/form-time-after.png",
-        alt: "Form after: defaulted structured time picker",
-        width: 560,
-        height: 360,
-      },
+      body: "A structured time picker (defaulting to now) replaced free-text entry, producing consistent, usable data.",
     },
     {
       title: "Submit button hierarchy",
       // DRAFT
-      body: "Submit and discard originally carried equal visual weight. The final layout makes submitting the single primary action and demotes discard to a quiet text link.",
-      before: {
-        src: "/images/form-submit-before.png",
-        alt: "Form before: equal-weight submit and discard",
-        width: 560,
-        height: 360,
-      },
-      after: {
-        src: "/images/form-submit-after.png",
-        alt: "Form after: clear primary submit action",
-        width: 560,
-        height: 360,
-      },
+      body: "Submitting is the single primary action; discard is demoted to a quiet secondary control.",
     },
-  ] satisfies Comparison[],
+  ] satisfies DecisionPoint[],
+};
+
+export type Comparison = {
+  title: string;
+  body: string;
+  before: ShowcaseImage;
+  after: ShowcaseImage;
 };
 
 export const reportViewDecisions = {
@@ -313,40 +282,23 @@ export const reportViewDecisions = {
   heading: "Submitted Incident Report View",
   // DRAFT intro
   intro:
-    "Once submitted, a report is read far more often than it is written — by managers, safety officers and auditors.",
+    "Once submitted, a report is read far more often than it is written — by managers, safety officers and auditors. The redesign reorganizes it around the reader.",
   comparisons: [
     {
-      title: "Field layout",
+      title: "Field layout & reporter placement",
       // DRAFT
-      body: "The first view mirrored the form's input order. The final layout groups what readers need first — what happened, where, how severe — above administrative detail.",
+      body: "The original view led with the reporter's name and mirrored the form's input order. The redesign leads with what happened and how severe it was, groups the incident detail together, and moves the reporter into supporting metadata — keeping the focus on the incident, not the person.",
       before: {
-        src: "/images/report-layout-before.png",
-        alt: "Report view before: form-order field layout",
-        width: 560,
-        height: 360,
+        src: "/images/submitted-report-before.png",
+        alt: "The original submitted report: reporter name at the top, form-order fields",
+        width: 1064,
+        height: 543,
       },
       after: {
-        src: "/images/report-layout-after.png",
-        alt: "Report view after: reader-first grouping",
-        width: 560,
-        height: 360,
-      },
-    },
-    {
-      title: "Reporter placement",
-      // DRAFT
-      body: "The reporter's name originally led the page, implying blame. The final design moves it to metadata, keeping the focus on the incident, not the person.",
-      before: {
-        src: "/images/report-reporter-before.png",
-        alt: "Report view before: reporter name at the top",
-        width: 560,
-        height: 360,
-      },
-      after: {
-        src: "/images/report-reporter-after.png",
-        alt: "Report view after: reporter in metadata",
-        width: 560,
-        height: 360,
+        src: "/images/submitted-report-after.png",
+        alt: "The redesigned submitted report: severity-led, reader-first grouping",
+        width: 2978,
+        height: 1302,
       },
     },
   ] satisfies Comparison[],

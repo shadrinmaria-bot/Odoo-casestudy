@@ -4,6 +4,9 @@ A single-page case study site rebuilt from the original Wix Studio site
 (`amitzadik.wixstudio.com/odoo-manufacturing`) as a Next.js (App Router) +
 TypeScript + Tailwind CSS app, ready to deploy on Vercel.
 
+Dark theme with a mint-green accent, a full-bleed hero image, and
+scroll-triggered animations — matched to the live site.
+
 ## Run locally
 
 ```bash
@@ -24,51 +27,54 @@ Either:
 
 | What | Where |
 | --- | --- |
-| **All page copy** | `lib/content.ts` — one file, edit freely |
-| Design tokens (colors, radii, fonts) | `tailwind.config.ts` |
-| Fonts | `app/layout.tsx` (Inter + Space Grotesk via `next/font`) |
+| **All page copy & asset paths** | `lib/content.ts` — one file, edit freely |
+| Design tokens (dark palette, mint accent, radii) | `tailwind.config.ts` |
+| Font (Hanken Grotesk, a Wix-Madefor stand-in) | `app/layout.tsx` |
 | Page section order | `app/page.tsx` |
 | Scroll animations | `components/Reveal.tsx` (framer-motion, respects reduced motion) |
-| Images/videos | `public/images/`, `public/videos/` |
+| Images | `public/images/` |
+| Videos | `public/videos/` (feature demos, autoplay + muted + loop) |
 
-## Supplying images
+## Assets
 
-Drop files into `public/images/` using the exact filenames below. Until a
-file exists, the site shows a labeled gray placeholder in its spot (the
-`Asset` component falls back automatically — no code changes needed).
+The client-supplied images and videos are wired in under clean semantic
+filenames in `public/`:
 
-Missing assets:
+**Images** — `hero-background.jpg`, `odoo-apps-home.png`,
+`manufacturing-overview.png`, `problem-reporting-menu.png`,
+`solution-reporting-safety.png`, `incident-badge-states.svg`,
+`work-center-zero-incidents.png`, `incident-report-form.png`,
+`submitted-report-before.png`, `submitted-report-after.png`,
+`persona-worker.png`.
 
-- `hero-mockup.png` — hero mockup of the feature inside Odoo
-- `background-odoo-overview.png` — Odoo Manufacturing overview screenshot
-- `background-odoo-workorders.png` — Odoo work orders screenshot
-- `feature-incident-reporting.png` — Incident Reporting thumbnail
-- `feature-incident-tracking.png` — Incident Tracking thumbnail
-- `feature-safety-analytics.png` — Safety Analytics thumbnail
-- `badge-color-before.png` / `badge-color-after.png` — badge color coding
-- `badge-load-before.png` / `badge-load-after.png` — badge cognitive load
-- `badge-zero-before.png` / `badge-zero-after.png` — badge zero state
-- `form-errors-before.png` / `form-errors-after.png` — form error feedback
-- `form-time-before.png` / `form-time-after.png` — form time field
-- `form-submit-before.png` / `form-submit-after.png` — submit hierarchy
-- `report-layout-before.png` / `report-layout-after.png` — report field layout
-- `report-reporter-before.png` / `report-reporter-after.png` — reporter placement
+**Videos** — `incident-reporting.mp4`, `incident-tracking.mp4`,
+`safety-analytics.mp4` (the three feature demos).
 
-If an image's aspect ratio differs from the placeholder's, update the
-`width`/`height` for that entry in `lib/content.ts` so `next/image`
-reserves the right space.
+Any image/video component falls back to a labeled placeholder if a file is
+missing, so swapping or adding assets never breaks the layout — just drop a
+file into `public/` matching the path in `lib/content.ts`.
 
-## Provenance caveats
+## Assumptions to verify
 
-The original Wix site was not reachable from the build environment
-(network policy blocked the host), so:
+- **Video order** — the three demos are mapped to Incident Reporting /
+  Incident Tracking / Safety Analytics in numbered order (01/02/03). If the
+  client's intended order differs, swap the `src` values in the `features`
+  block of `lib/content.ts`.
+- **Copy marked `DRAFT`** in `lib/content.ts` (Background paragraph, root
+  causes, persona quote/lists, feature blurbs, design-decision points, stat
+  source) is written to match the case-study narrative — replace with the
+  exact wording from the live site. Copy marked `(verbatim)` is confirmed
+  from the reference screenshots.
+- **Font** — Hanken Grotesk approximates Wix Madefor (not on Google Fonts).
+  Self-host the real Madefor files and update `app/layout.tsx` for an exact
+  match.
+- **Accent hex** (`#5FE0B0`) and the dark palette live in
+  `tailwind.config.ts` — fine-tune there if needed.
+- **Wix badge** — replaced with a small footer credit; edit or delete
+  `footer.credit` in `lib/content.ts` to change or remove it.
 
-- Copy marked `(verbatim)` in `lib/content.ts` comes from the project
-  brief; everything marked `DRAFT` is written to match the brief's
-  description and should be replaced with the site's real copy.
-- Colors, fonts, and spacing in `tailwind.config.ts` are documented
-  assumptions (Odoo brand purple accent, warm off-white background) —
-  adjust the hex values there to match the original exactly.
-- The "Built on Wix Studio" badge was replaced with a small footer
-  credit; edit or delete `footer.credit` in `lib/content.ts` to change
-  or remove it.
+## Unused uploads
+
+A few uploaded files aren't referenced (a cropped nav-bar detail and two
+loose SVG glyphs); the on-page arrow is drawn in SVG directly. Point any
+component in `lib/content.ts` at them if you want them shown.

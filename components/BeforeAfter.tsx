@@ -23,7 +23,7 @@ function Pane({
         className={`mb-3 inline-block rounded-badge px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] ${
           tone === "before"
             ? "bg-surface text-faint"
-            : "bg-accent text-white"
+            : "bg-accent text-accent-on"
         }`}
       >
         {label}

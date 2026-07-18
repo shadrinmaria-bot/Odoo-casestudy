@@ -1,13 +1,9 @@
 import type { Config } from "tailwindcss";
 
 /**
- * Design tokens.
- *
- * NOTE: the original Wix Studio site could not be fetched from this
- * environment (network policy), so these values are documented
- * assumptions chosen to fit an Odoo-themed case study. Adjust the hex
- * values here to match the original site exactly — every component
- * reads from these tokens.
+ * Design tokens — matched to the live Wix Studio site (dark theme with a
+ * mint-green accent), read from reference screenshots. Adjust the hex
+ * values here to fine-tune; every component reads from these tokens.
  */
 const config: Config = {
   content: [
@@ -18,30 +14,31 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // page + surfaces
-        paper: "#FAFAF8",
-        surface: "#FFFFFF",
-        "surface-alt": "#F4F1EF",
+        // page + surfaces (dark)
+        paper: "#0C0C0E",
+        surface: "#141418",
+        "surface-alt": "#111114",
         // text
-        ink: "#1C1A19",
-        muted: "#6E6862",
-        faint: "#9C948D",
-        // Odoo brand purple as the primary accent
+        ink: "#FFFFFF",
+        muted: "#A6A6AE",
+        faint: "#6C6C76",
+        // mint-green accent from the reference (arrows, highlights, links)
         accent: {
-          DEFAULT: "#714B67",
-          dark: "#5B3C53",
-          soft: "#F1EAEF",
+          DEFAULT: "#5FE0B0",
+          dark: "#43C795",
+          soft: "rgba(95, 224, 176, 0.12)",
+          on: "#08130E", // near-black text for use on top of the mint accent
         },
-        // incident/badge states
+        // incident/badge states (tuned for dark surfaces)
         state: {
-          danger: "#D64545",
-          "danger-soft": "#FBEAEA",
-          warning: "#E19A2E",
-          "warning-soft": "#FBF1DF",
-          success: "#3E9B6B",
-          "success-soft": "#E7F3ED",
+          danger: "#F87171",
+          "danger-soft": "rgba(248, 113, 113, 0.14)",
+          warning: "#FBBF24",
+          "warning-soft": "rgba(251, 191, 36, 0.14)",
+          success: "#34D399",
+          "success-soft": "rgba(52, 211, 153, 0.14)",
         },
-        line: "#E7E2DD",
+        line: "#26262C",
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
@@ -52,7 +49,7 @@ const config: Config = {
         badge: "999px",
       },
       maxWidth: {
-        content: "72rem",
+        content: "80rem",
       },
     },
   },

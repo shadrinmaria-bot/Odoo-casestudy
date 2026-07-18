@@ -40,6 +40,9 @@ export default function Asset({
     );
   }
 
+  // SVGs bypass the image optimizer (which rejects them by default).
+  const unoptimized = src.toLowerCase().endsWith(".svg");
+
   return (
     <Image
       src={src}
@@ -47,6 +50,7 @@ export default function Asset({
       width={width}
       height={height}
       priority={priority}
+      unoptimized={unoptimized}
       onError={() => setMissing(true)}
       className={`w-full rounded-card ${className}`}
     />
