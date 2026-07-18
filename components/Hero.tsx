@@ -51,14 +51,16 @@ export default function Hero() {
       {/* Meta row across the top */}
       <motion.div
         {...fade(0)}
-        className="relative z-10 mx-auto grid w-full max-w-content grid-cols-2 gap-x-8 gap-y-5 px-6 pt-24 md:grid-cols-4 md:px-10 md:pt-16"
+        className="relative z-10 mx-auto grid w-full max-w-[1021px] grid-cols-2 gap-x-8 gap-y-5 px-6 pt-24 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_261px_122px] md:gap-x-10 md:px-10 md:pt-8"
       >
         {hero.projectMeta.map((item) => (
           <div key={item.label}>
             <p className="font-display text-sm italic text-white/90">
               {item.label}
             </p>
-            <p className="mt-1 text-sm italic text-white/70">{item.value}</p>
+            <p className="mt-1 text-sm italic text-white/70 md:whitespace-nowrap">
+              {item.value}
+            </p>
           </div>
         ))}
       </motion.div>
@@ -67,17 +69,17 @@ export default function Hero() {
       <div className="relative z-10 mx-auto flex w-full max-w-content flex-1 flex-col justify-center px-6 py-16 md:px-10">
         <motion.h1
           {...fade(0.1)}
-          className="font-display text-5xl font-extrabold leading-[0.98] tracking-tight text-white sm:text-7xl md:text-8xl"
+          className="w-full text-center font-display text-5xl font-extrabold leading-none tracking-tight text-white sm:text-7xl md:text-8xl"
         >
           {hero.headlineLine1}
           <br />
-          <span className="md:ml-[22%]">{hero.headlineLine2}</span>
+          {hero.headlineLine2}
         </motion.h1>
 
         <motion.div {...fade(0.25)} className="mt-6 md:ml-[22%] md:max-w-xl">
           <p className="text-lg text-white/90 md:text-xl">{hero.kicker}</p>
           <div className="mt-6">
-            <p className="font-display text-sm italic text-white/80">
+            <p className="font-display text-base font-semibold italic leading-5 text-white/80">
               {hero.team.label}
             </p>
             {hero.team.members.map((member) => (
@@ -88,12 +90,6 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        <motion.p
-          {...fade(0.4)}
-          className="mt-10 inline-block self-start border-l-4 border-accent pl-4 text-base font-bold uppercase tracking-wide text-white md:text-lg"
-        >
-          {hero.statement}
-        </motion.p>
       </div>
     </section>
   );
