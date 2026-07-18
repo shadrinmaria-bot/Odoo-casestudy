@@ -13,16 +13,19 @@ export default function BadgeIterations() {
   const { before, after, noIncidents } = badgeIterations;
 
   return (
-    <Section id="design-badge">
+    <Section id="design-badge" className="bg-[#101014] py-24 md:py-28">
       <Reveal>
-        <h2 className="font-display text-3xl font-semibold tracking-tight md:text-5xl">
+        <h2 className="font-display text-2xl font-semibold tracking-tight md:text-4xl">
           {badgeIterations.heading}
         </h2>
+        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted md:text-base">
+          {badgeIterations.intro}
+        </p>
       </Reveal>
 
       {/* Hero: severity pills → count badges */}
-      <Reveal className="mt-16">
-        <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
+      <Reveal className="mt-12 rounded-lg bg-[#0C0C10] px-6 py-10 md:px-12">
+        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-14">
           <div className="flex flex-col gap-3">
             {before.map((pill, i) => (
               <OpenPill key={i} pill={pill} />
@@ -38,10 +41,10 @@ export default function BadgeIterations() {
       </Reveal>
 
       {/* No incidents state */}
-      <Reveal className="mt-24">
-        <div className="grid gap-x-16 gap-y-10 md:grid-cols-2">
+      <Reveal className="mt-16">
+        <div className="grid gap-x-16 gap-y-10 border-t border-white/5 pt-10 md:grid-cols-2">
           <div>
-            <h3 className="font-display text-2xl font-semibold tracking-tight md:text-3xl">
+              <h3 className="font-display text-xl font-semibold tracking-tight md:text-2xl">
               {noIncidents.heading}
             </h3>
             <p className="mt-6 max-w-md text-base leading-relaxed text-white/90 md:text-lg">

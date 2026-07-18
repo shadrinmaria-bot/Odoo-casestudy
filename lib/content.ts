@@ -133,6 +133,7 @@ export type FeatureSectionData = {
   // The demo videos already contain their own laptop mockup and captions,
   // so the section only positions the video to one side.
   videoSide: "left" | "right";
+  caption: string;
   video: { src: string; width: number; height: number };
 };
 
@@ -141,18 +142,21 @@ export const featureSections: FeatureSectionData[] = [
     id: "incident-reporting",
     heading: "Incident Reporting",
     videoSide: "left",
+    caption: "One click logs the incident and instantly notifies EHS staff.",
     video: { src: "/videos/incident-reporting.mp4", width: 16, height: 10 },
   },
   {
     id: "incident-tracking",
     heading: "Incident Tracking",
     videoSide: "right",
+    caption: "Track every incident, from report to resolution, in one place.",
     video: { src: "/videos/incident-tracking.mp4", width: 16, height: 10 },
   },
   {
     id: "safety-analytics",
     heading: "Safety Analytics",
     videoSide: "left",
+    caption: "Visualize incident trends to catch patterns before they repeat.",
     video: { src: "/videos/safety-analytics.mp4", width: 16, height: 10 },
   },
 ];
@@ -166,6 +170,8 @@ export type BadgePill = { text: string; tone: BadgeTone };
 
 export const badgeIterations = {
   heading: "Incident Badge Design Iterations",
+  intro:
+    "The badge sits on every work center card. It developed from a severity-heavy status into a faster, clearer signal.",
   // Hero comparison: the "N Open" severity pills → the count badges.
   before: [
     { text: "1 Open", tone: "danger" },
@@ -248,6 +254,7 @@ export const reportView = {
 };
 
 export const futureImprovements = {
+  heading: "Future Improvements",
   // (verbatim)
   caption:
     'For future improvements, we\'d like to add a blue "Needs Attention" badge, helping managers spot urgent incidents at a glance.',

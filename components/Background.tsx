@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import { background } from "@/lib/content";
 
@@ -6,22 +5,14 @@ export default function Background() {
   return (
     <section
       id="background"
-      className="relative overflow-hidden bg-black px-6 py-28 md:px-10 md:py-40"
+      className="bg-black px-6 py-24 md:px-10 md:py-32"
     >
-      {/* Full-bleed app-launcher image, dimmed to 15% behind the copy. */}
-      <Image
-        src={background.image.src}
-        alt={background.image.alt}
-        fill
-        sizes="100vw"
-        className="object-cover opacity-[0.15]"
-      />
-      <div className="relative mx-auto max-w-3xl text-center">
+      <div className="mx-auto max-w-3xl text-center">
         <Reveal>
-          <h2 className="font-display text-4xl font-semibold tracking-tight md:text-6xl">
+          <h2 className="font-display text-3xl font-semibold tracking-tight md:text-5xl">
             {background.heading}
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-white/90 md:text-2xl">
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/90 md:text-xl">
             {background.body}
           </p>
         </Reveal>

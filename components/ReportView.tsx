@@ -35,14 +35,14 @@ function Pane({
 
 export default function ReportView() {
   return (
-    <Section id="design-report-view" alt>
+    <Section id="design-report-view" className="bg-[#101014] py-24 md:py-28">
       <SectionHeading title={reportView.heading} intro={reportView.intro} />
-      <Reveal className="mt-12">
+      <Reveal className="mt-10">
         <div className="grid gap-6 md:grid-cols-2">
           <Pane label="Before" tone="before" image={reportView.before} />
           <Pane label="After" tone="after" image={reportView.after} />
         </div>
-        <p className="mx-auto mt-8 max-w-3xl text-center text-sm leading-relaxed text-muted md:text-base">
+        <p className="mx-auto mt-7 max-w-3xl text-center text-xs leading-relaxed text-muted md:text-sm">
           {reportView.body}
         </p>
       </Reveal>

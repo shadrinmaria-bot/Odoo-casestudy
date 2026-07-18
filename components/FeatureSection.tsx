@@ -1,5 +1,4 @@
 import Reveal from "@/components/Reveal";
-import Section from "@/components/Section";
 import VideoAsset from "@/components/VideoAsset";
 import type { FeatureSectionData } from "@/lib/content";
 
@@ -11,25 +10,29 @@ export default function FeatureSection({ data }: { data: FeatureSectionData }) {
 
   return (
     <section id={data.id} className="bg-panel px-6 py-24 md:px-10 md:py-32">
-      <div className="mx-auto max-w-content">
+      <div className="mx-auto max-w-5xl">
         <Reveal className="text-center">
-          <h2 className="font-display text-3xl font-semibold tracking-tight md:text-5xl">
+          <h2 className="font-display text-2xl font-semibold tracking-tight md:text-4xl">
             {data.heading}
           </h2>
         </Reveal>
 
-        <Reveal
-          direction={left ? "left" : "right"}
-          className={`mt-12 flex ${left ? "justify-start" : "justify-end"}`}
-        >
-          <VideoAsset
-            src={data.video.src}
-            width={data.video.width}
-            height={data.video.height}
-            label={`${data.heading} demo`}
-            className="w-full max-w-3xl bg-panel"
-          />
-        </Reveal>
+        <div className="mt-12 grid items-center gap-10 md:grid-cols-2 md:gap-20">
+          <Reveal direction={left ? "left" : "right"} className={left ? "" : "md:order-2"}>
+            <VideoAsset
+              src={data.video.src}
+              width={1}
+              height={1}
+              label={`${data.heading} demo`}
+              className="aspect-square w-full bg-[#D9D9D9] object-cover"
+            />
+          </Reveal>
+          <Reveal direction={left ? "right" : "left"} className={left ? "" : "md:order-1"}>
+            <p className="max-w-sm text-base leading-relaxed text-white/90 md:text-lg">
+              {data.caption}
+            </p>
+          </Reveal>
+        </div>
       </div>
     </section>
   );

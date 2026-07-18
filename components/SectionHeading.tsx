@@ -16,7 +16,7 @@ export default function SectionHeading({
           {kicker}
         </p>
       ) : null}
-      <h2 className="font-display text-3xl font-bold tracking-tight md:text-5xl">
+      <h2 className="font-display text-2xl font-bold tracking-tight md:text-4xl">
         {title}
       </h2>
       {intro ? (

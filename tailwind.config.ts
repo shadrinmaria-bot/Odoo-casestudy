@@ -26,9 +26,9 @@ const config: Config = {
         faint: "#6C6C76",
         // mint-green accent from the reference (arrows, highlights, links)
         accent: {
-          DEFAULT: "#5FE0B0",
-          dark: "#43C795",
-          soft: "rgba(95, 224, 176, 0.12)",
+          DEFAULT: "#2FFFD5",
+          dark: "#2FFFD5",
+          soft: "rgba(47, 255, 213, 0.12)",
           on: "#08130E", // near-black text for use on top of the mint accent
         },
         // incident/badge states (tuned for dark surfaces)
