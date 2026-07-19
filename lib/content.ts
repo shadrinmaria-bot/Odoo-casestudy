@@ -28,7 +28,7 @@ export const hero = {
   kicker: "A safety management feature built into Odoo Manufacturing", // (verbatim)
   prototype: {
     label: "Click here for the prototype",
-    href: "https://www.figma.com/proto/QcaoFAFQf9WoPfqZxpwJ18/Odoo-Manufacturing-Safety-Case-Study?node-id=8-47",
+    href: "https://odoo-manufacturing.vercel.app/",
   },
   headlineLine1: "Spot safety patterns", // (verbatim)
   headlineLine2: "Before they escalate", // (verbatim)
