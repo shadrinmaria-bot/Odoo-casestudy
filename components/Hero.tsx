@@ -88,7 +88,15 @@ export default function Hero() {
             <p className="text-lg font-normal text-white/90 md:text-xl xl:whitespace-nowrap xl:text-[24px] xl:leading-8">
               {hero.kicker}
             </p>
-            <div className="mt-6">
+            <a
+              href={hero.prototype.href}
+              target="_blank"
+              rel="noreferrer"
+              className="block text-lg font-normal text-white/90 underline underline-offset-2 md:text-xl xl:text-[24px] xl:leading-8"
+            >
+              {hero.prototype.label}
+            </a>
+            <div className="mt-4">
               <p className="font-display text-sm italic text-white/80 md:text-base md:font-medium xl:text-[20px] xl:leading-5">
                 {hero.team.label}
               </p>
