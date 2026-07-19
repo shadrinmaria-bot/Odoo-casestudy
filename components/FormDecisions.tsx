@@ -59,7 +59,7 @@ export default function FormDecisions() {
         </p>
       </Reveal>
 
-      <div className="mt-14 grid items-center gap-10 md:grid-cols-[572px_1fr] md:gap-14">
+      <div className="mt-14 grid items-center gap-10 lg:grid-cols-[minmax(0,540px)_1fr] lg:gap-14">
         <Reveal direction="left">
           <Asset {...formDecisions.before} />
         </Reveal>

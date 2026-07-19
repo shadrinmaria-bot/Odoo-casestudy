@@ -13,8 +13,9 @@ const offsets: Record<Direction, { x: number; y: number }> = {
 };
 
 /**
- * Scroll-triggered entrance: fades/slides children in the first time
- * they enter the viewport, mirroring the Wix section animations.
+ * Scroll-linked reveal: fades/slides children in when they enter the
+ * viewport and back out when they leave - in both scroll directions
+ * (`once: false`), so scrolling up re-triggers the fade too.
  */
 export default function Reveal({
   children,
@@ -35,7 +36,7 @@ export default function Reveal({
       className={className}
       initial={{ opacity: 0, ...offset }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: "0px 0px -80px 0px" }}
+      viewport={{ once: false, amount: 0.2, margin: "0px 0px -80px 0px" }}
       transition={{ duration: 0.6, delay, ease: [0.21, 0.65, 0.36, 1] }}
     >
       {children}

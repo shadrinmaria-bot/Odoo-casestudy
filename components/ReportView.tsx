@@ -42,7 +42,7 @@ export default function ReportView() {
           <Pane label="Before" tone="before" image={reportView.before} />
           <Pane label="After" tone="after" image={reportView.after} />
         </div>
-        <p className="mx-auto mt-7 max-w-3xl text-left text-xs leading-relaxed text-muted md:text-sm">
+        <p className="mt-7 max-w-[672px] text-left text-base leading-6 text-muted">
           {reportView.body}
         </p>
       </Reveal>

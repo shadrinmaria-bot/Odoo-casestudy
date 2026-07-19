@@ -15,7 +15,14 @@ export default function Background() {
         alt={background.image.alt}
         fill
         sizes="100vw"
-        className="object-contain opacity-[0.15]"
+        className="object-contain opacity-20"
+        style={{
+          // Soft-fade the image's rectangular edges into the section bg.
+          WebkitMaskImage:
+            "radial-gradient(ellipse 62% 68% at 50% 50%, #000 40%, transparent 78%)",
+          maskImage:
+            "radial-gradient(ellipse 62% 68% at 50% 50%, #000 40%, transparent 78%)",
+        }}
       />
       <div className="relative mx-auto max-w-[768px] text-left">
         <Reveal>

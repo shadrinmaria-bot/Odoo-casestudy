@@ -9,7 +9,7 @@
  */
 
 export const meta = {
-  title: "Odoo Manufacturing - Safety Case Study",
+  title: "Odoo Manufacturing Safety Case Study",
   description:
     "A safety management feature built into Odoo Manufacturing. UX case study.",
 };
@@ -17,7 +17,7 @@ export const meta = {
 export const hero = {
   projectMeta: [
     { label: "Platform", value: "Desktop Web Application" },
-    { label: "Type", value: "Feature Extension - Odoo ERP" },
+    { label: "Type", value: "Feature Extension · Odoo ERP" },
     { label: "Role", value: "Research · UX · Visual Design · Prototype" },
     { label: "Context", value: "Academic Project" },
   ],
@@ -36,8 +36,7 @@ export const hero = {
 
 export const background = {
   heading: "Background",
-  // (verbatim, from the reference screenshot)
-  body: "Odoo is an open-source business management software suite (manufacturing, inventory, accounting, HR, and CRM) that lets companies run their operations from one integrated platform.",
+  body: "Odoo is an open-source business software suite (manufacturing, inventory, accounting, HR, CRM) that runs a company's operations from one integrated platform.",
   image: {
     src: "/images/odoo-apps-home.png",
     alt: "The Odoo app launcher: Discuss, Dashboards, Inventory, Manufacturing, Shop Floor and more",
@@ -88,7 +87,7 @@ export const problem = {
 export const solution = {
   heading: "Solution",
   // (verbatim, from the reference screenshot)
-  body: "We added a safety layer to Odoo's Overview, embedding safety data to help track patterns and reduce future incidents.",
+  body: "We added a safety layer to Odoo's Overview, embedding safety data to surface patterns and prevent future incidents.",
   image: {
     src: "/images/solution.png",
     alt: "The reporting menu with a new Safety Statistics entry added",
@@ -114,18 +113,16 @@ export const persona = {
   },
   complexity: {
     title: "What makes their job complex",
-    // (verbatim)
     items: [
-      "Manages many work centers with 50–150 employees",
+      "Manages many work centers with 50-150 employees",
       "Previously relied on Excel and paper logs",
-      "Safety compliance and incident reporting are new responsibilities, not ones they were trained for",
-      "Overloaded with parallel duties: shift management, work orders, scheduling, MRP planning",
+      "Safety and incident reporting are new to them, with no formal training",
+      "Juggles parallel duties: shifts, work orders, scheduling, MRP planning",
     ],
   },
   success: {
-    title: "What success looks like for him",
-    // (verbatim)
-    body: "All tasks are completed on time, with no delays, safety issues, or unnecessary injuries.",
+    title: "What success looks like for them",
+    body: "Every task is done on time, with no delays, safety issues, or needless injuries.",
   },
 };
 
@@ -173,21 +170,21 @@ export type BadgePill = { text: string; tone: BadgeTone };
 export const badgeIterations = {
   heading: "Incident Badge Design Iterations",
   intro:
-    "The badge sits on every work center and is the element workers see most often. Each iteration made its state easier to read at a glance.",
+    "The badge sits on every work center and is what workers see most. Each iteration made its state easier to read at a glance.",
   decisions: [
     {
       title: "Color coding",
-      body: "The new form uses two states, keeping urgency clear.",
+      body: "Two states keep urgency clear at a glance.",
       kind: "colors",
     },
     {
       title: "Cognitive load",
-      body: "The verbose label forced reading. The final badge leads with the count and a state color; the wording moves into the card.",
+      body: "The verbose label forced reading. The final badge leads with the count and color; the words move into the card.",
       kind: "cognitive",
     },
     {
       title: "Zero state",
-      body: "The badge was grey and had 0 Incidents, instead we’ve decided to make it hidden and appear on hover only, in case a report has to be made.",
+      body: "The grey \"0 Incidents\" badge is now hidden, showing on hover only when a report is needed.",
       kind: "zero",
     },
   ] as const,
@@ -203,12 +200,10 @@ export const badgeIterations = {
   ] satisfies BadgePill[],
   noIncidents: {
     heading: "No incidents state",
-    // (verbatim)
     oldText:
-      'The old form displayed a grey "0 Incident" badge to inform users of the absence of incidents, and clicking it offered only the option to report one.',
-    // (verbatim)
+      'The old form showed a grey "0 Incident" badge; clicking it only offered to report one.',
     newText:
-      "The new form appears only on hover, so nothing distracts the user when there are no incidents, and clicking the triangle opens the report incident form with the workstation automatically filled in.",
+      "The new badge shows on hover only, so nothing distracts when there are no incidents. Clicking the triangle opens the report form with the workstation pre-filled.",
   },
 };
 
@@ -216,9 +211,8 @@ export type Annotation = { title: string; body: string };
 
 export const formDecisions = {
   heading: "Safety Incident Report Form",
-  // DRAFT intro
   intro:
-    "The form has to be fast enough to fill in mid-shift, on the floor. Every revision removed friction.",
+    "The form has to be fast to fill in mid-shift, on the floor. Every revision removed friction.",
   image: {
     src: "/images/incident-report-form.png",
     alt: "The safety incident report form: injury-type grid, structured time picker and severity",
@@ -240,13 +234,11 @@ export const formDecisions = {
   annotations: [
     {
       title: "Error feedback",
-      // DRAFT
-      body: "specific inline error messages directly below each field, telling the user precisely what's needed.",
+      body: "Inline messages below each field tell the user exactly what's needed.",
     },
     {
       title: "Time of incident",
-      // DRAFT
-      body: "a dedicated time dropdown, ensuring every report captures a complete picture of when the incident occurred.",
+      body: "A dedicated time dropdown captures exactly when the incident occurred.",
     },
   ] satisfies Annotation[],
 };
@@ -260,9 +252,8 @@ export type ShowcaseImage = {
 
 export const reportView = {
   heading: "Submitted Incident Report View",
-  // DRAFT intro
   intro:
-    "Once submitted, a report is read far more often than it is written - by managers, safety officers and auditors. The redesign reorganizes it around the reader.",
+    "A submitted report is read far more than written, by managers, safety officers and auditors. The redesign puts the reader first.",
   before: {
     src: "/images/submitted-report-before.png",
     alt: "The original submitted report: reporter name at the top, form-order fields",
@@ -275,15 +266,13 @@ export const reportView = {
     width: 2978,
     height: 1302,
   } satisfies ShowcaseImage,
-  // DRAFT
-  body: "The original view led with the reporter's name and mirrored the form's input order. The redesign leads with what happened and how severe it was, groups the incident detail together, and moves the reporter into supporting metadata - keeping the focus on the incident, not the person.",
+  body: "The original view led with the reporter's name and mirrored the form's order. The redesign leads with what happened and how severe it was, groups the incident detail, and moves the reporter into metadata, keeping focus on the incident, not the person.",
 };
 
 export const futureImprovements = {
   heading: "Future Improvements",
-  // (verbatim)
   caption:
-    "For future improvements we’d like to connect the report from Manufacturing to the Odoo HR Module to be able to view the incident investigation and how it’s resolved.",
+    "Next, we'd like to connect the Manufacturing report to Odoo's HR module, so the investigation and its resolution live in one place.",
   // Video to be uploaded later; shows a labeled placeholder until then.
   video: { src: "/videos/future-improvements.mp4", width: 16, height: 9 },
 };

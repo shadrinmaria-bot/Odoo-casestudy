@@ -48,39 +48,32 @@ export default function Hero() {
         className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/70"
       />
 
-      {/* Meta row across the top */}
+      {/* Meta row across the top. Fluid columns and type so the four items
+          never collide at any viewport; the fixed Figma track widths apply
+          only from xl, where they are known to fit. */}
       <motion.div
         {...fade(0)}
-        className="relative z-10 mx-auto grid w-full max-w-[1280px] grid-cols-2 gap-x-8 gap-y-5 px-6 pt-24 md:h-24 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_261px_122px] md:gap-x-10 md:gap-y-0 md:px-10 md:pt-[52px] xl:grid-cols-[228px_287px_374px_167px]"
+        className="relative z-10 mx-auto grid w-full max-w-[1280px] grid-cols-2 gap-x-6 gap-y-5 px-5 pt-16 sm:px-6 md:grid-cols-4 md:gap-x-8 md:px-10 md:pt-[52px] lg:gap-x-10 xl:grid-cols-[228px_287px_374px_167px]"
       >
-        {hero.projectMeta.map((item, index) => (
-          <div
-            key={item.label}
-            className={
-              index === 0
-                ? "xl:w-[228px]"
-                : index === 1
-                  ? "xl:w-[198px]"
-                  : index === 2
-                    ? "xl:w-[276px]"
-                    : "xl:w-[167px]"
-            }
-          >
-            <p className="font-display text-[20px] font-medium italic leading-5 text-white/90">
+        {hero.projectMeta.map((item) => (
+          <div key={item.label} className="min-w-0">
+            <p className="font-display text-sm font-medium italic leading-5 text-white/90 md:text-base xl:text-[20px]">
               {item.label}
             </p>
-            <p className="mt-1 text-[20px] italic leading-[22px] text-white/70 md:whitespace-nowrap">
+            <p className="mt-1 text-sm italic leading-snug text-white/70 md:text-base xl:text-[20px] xl:leading-[22px]">
               {item.value}
             </p>
           </div>
         ))}
       </motion.div>
 
-      {/* Headline block */}
-      <div className="relative z-10 mx-auto flex w-full max-w-content flex-1 flex-col justify-center px-6 py-16 md:px-10">
+      {/* Headline block - centered on screen, sitting over the dark upper
+          part of the photo (per Figma). Type scales with the viewport
+          (7.8vw ≈ 100px at 1280) so lines shrink instead of colliding. */}
+      <div className="relative z-10 mx-auto flex w-full max-w-content flex-1 flex-col justify-center px-6 py-12 md:px-10 md:py-7">
         <motion.h1
           {...fade(0.1)}
-          className="w-full max-w-[893px] text-left font-display text-5xl font-extrabold leading-[0.98] tracking-tight text-white sm:text-7xl md:text-[100px] md:leading-[96px] md:tracking-[-2.4px]"
+          className="mx-auto w-full max-w-[893px] font-display text-5xl font-extrabold leading-[0.98] tracking-tight text-white sm:text-7xl md:text-[7.8vw] md:leading-[0.96] md:tracking-[-0.024em] xl:text-[100px] xl:leading-[96px] xl:tracking-[-2.4px]"
         >
           {hero.headlineLine1}
           <br />
@@ -89,14 +82,14 @@ export default function Hero() {
 
         <motion.div
           {...fade(0.25)}
-          className="mt-6 w-full md:max-w-[864px] md:pl-[323px]"
+          className="mx-auto mt-6 w-full max-w-[864px] md:pl-[323px]"
         >
-          <div className="md:w-[535px] md:max-w-xl">
-            <p className="text-lg font-normal text-white/90 md:text-[24px] md:leading-8">
+          <div className="max-w-[535px]">
+            <p className="text-lg font-normal text-white/90 md:text-xl xl:whitespace-nowrap xl:text-[24px] xl:leading-8">
               {hero.kicker}
             </p>
             <div className="mt-6">
-              <p className="font-display text-sm italic text-white/80 md:text-[20px] md:font-medium md:leading-5">
+              <p className="font-display text-sm italic text-white/80 md:text-base md:font-medium xl:text-[20px] xl:leading-5">
                 {hero.team.label}
               </p>
               {hero.team.members.map((member) => (

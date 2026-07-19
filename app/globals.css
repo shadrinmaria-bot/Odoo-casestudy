@@ -25,6 +25,13 @@
 html {
   scroll-behavior: smooth;
   background-color: #11141b;
+  /* Reveal animations slide elements in from the sides; clip the horizontal
+     axis so those transient transforms never create a horizontal scrollbar. */
+  overflow-x: clip;
+}
+
+body {
+  overflow-x: clip;
 }
 
 ::selection {
