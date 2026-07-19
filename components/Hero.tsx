@@ -53,7 +53,7 @@ export default function Hero() {
           only from xl, where they are known to fit. */}
       <motion.div
         {...fade(0)}
-        className="relative z-10 mx-auto grid w-full max-w-[1280px] grid-cols-2 justify-items-center gap-x-6 gap-y-5 px-5 pt-16 text-center sm:px-6 md:grid-cols-4 md:gap-x-8 md:px-10 md:pt-[52px] lg:gap-x-10 xl:grid-cols-[228px_287px_374px_167px] xl:justify-center"
+        className="relative z-10 mx-auto grid w-full max-w-[1280px] grid-cols-2 gap-x-6 gap-y-5 px-5 pt-16 text-left sm:px-6 md:grid-cols-4 md:gap-x-8 md:px-10 md:pt-[52px] lg:gap-x-10 xl:grid-cols-[228px_287px_374px_167px] xl:justify-center"
       >
         {hero.projectMeta.map((item) => (
           <div key={item.label} className="min-w-0">
@@ -70,10 +70,10 @@ export default function Hero() {
       {/* Headline block - centered on screen, sitting over the dark upper
           part of the photo (per Figma). Type scales with the viewport
           (7.8vw ≈ 100px at 1280) so lines shrink instead of colliding. */}
-      <div className="relative z-10 mx-auto mt-7 flex w-full max-w-content flex-1 flex-col justify-start px-6 pb-12 text-center md:px-10">
+      <div className="relative z-10 mx-auto mt-7 flex w-full max-w-content flex-1 flex-col justify-start px-6 pb-12 text-left md:px-10">
         <motion.h1
           {...fade(0.1)}
-          className="mx-auto w-full max-w-[893px] text-center font-display text-5xl font-extrabold leading-[0.98] tracking-tight text-white sm:text-7xl md:text-[7.8vw] md:leading-[0.96] md:tracking-[-0.024em] xl:text-[100px] xl:leading-[96px] xl:tracking-[-2.4px]"
+          className="mx-auto w-full max-w-[893px] text-left font-display text-5xl font-extrabold leading-[0.98] tracking-tight text-white sm:text-7xl md:text-[7.8vw] md:leading-[0.96] md:tracking-[-0.024em] xl:text-[100px] xl:leading-[96px] xl:tracking-[-2.4px]"
         >
           {hero.headlineLine1}
           <br />
@@ -82,9 +82,9 @@ export default function Hero() {
 
         <motion.div
           {...fade(0.25)}
-          className="mx-auto mt-6 w-full max-w-[864px]"
+          className="mx-auto mt-6 w-full max-w-[864px] md:pl-[323px]"
         >
-          <div className="mx-auto max-w-[535px] text-center">
+          <div className="max-w-[535px] text-left">
             <p className="text-lg font-normal text-white/90 md:text-xl xl:whitespace-nowrap xl:text-[24px] xl:leading-8">
               {hero.kicker}
             </p>
