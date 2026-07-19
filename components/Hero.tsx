@@ -92,7 +92,7 @@ export default function Hero() {
               href={hero.prototype.href}
               target="_blank"
               rel="noreferrer"
-              className="block text-lg font-normal text-white/90 underline underline-offset-2 md:text-xl xl:text-[24px] xl:leading-8"
+              className="block text-lg font-normal text-white/90 md:text-xl xl:text-[24px] xl:leading-8"
             >
               {hero.prototype.label}
             </a>
