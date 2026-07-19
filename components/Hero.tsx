@@ -70,7 +70,7 @@ export default function Hero() {
       {/* Headline block - centered on screen, sitting over the dark upper
           part of the photo (per Figma). Type scales with the viewport
           (7.8vw ≈ 100px at 1280) so lines shrink instead of colliding. */}
-      <div className="relative z-10 mx-auto flex w-full max-w-content flex-1 flex-col justify-center px-6 py-12 md:px-10 md:py-7">
+      <div className="relative z-10 mx-auto flex w-full max-w-content -translate-y-5 flex-1 flex-col justify-center px-6 py-12 md:px-10 md:py-7">
         <motion.h1
           {...fade(0.1)}
           className="mx-auto w-full max-w-[893px] font-display text-5xl font-extrabold leading-[0.98] tracking-tight text-white sm:text-7xl md:text-[7.8vw] md:leading-[0.96] md:tracking-[-0.024em] xl:text-[100px] xl:leading-[96px] xl:tracking-[-2.4px]"
