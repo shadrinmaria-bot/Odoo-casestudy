@@ -134,7 +134,7 @@ export default function BadgeIterations() {
         <h2 className="font-display text-3xl font-bold leading-tight tracking-[-1.2px] md:text-5xl md:leading-[48px]">
           {badgeIterations.heading}
         </h2>
-        <p className="mt-4 max-w-[672px] text-base leading-7 text-muted md:text-lg">
+        <p className="mt-4 max-w-[672px] text-base leading-7 text-muted md:text-[24px]">
           {badgeIterations.intro}
         </p>
       </Reveal>

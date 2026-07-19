@@ -20,7 +20,7 @@ export default function SectionHeading({
         {title}
       </h2>
       {intro ? (
-        <p className="mt-4 max-w-[672px] text-base leading-6 text-muted">
+        <p className="mt-4 max-w-[672px] text-base leading-6 text-muted md:text-[24px]">
           {intro}
         </p>
       ) : null}

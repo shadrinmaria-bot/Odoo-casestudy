@@ -10,7 +10,7 @@ export default function Persona() {
         <h2 className="font-display text-4xl font-bold leading-none tracking-[-1.5px] md:text-[60px] md:leading-[60px]">
           {persona.heading}
         </h2>
-        <p className="mt-4 max-w-[472px] text-base leading-6 text-white/90">
+        <p className="mt-4 max-w-[472px] text-base leading-6 text-white/90 md:text-[24px]">
           {persona.subtitle}
         </p>
       </Reveal>

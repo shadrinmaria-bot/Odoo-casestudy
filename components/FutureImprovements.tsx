@@ -10,7 +10,7 @@ export default function FutureImprovements() {
           <h2 className="text-center font-display text-4xl font-bold leading-none tracking-[-1.5px] md:text-[60px] md:leading-[60px]">
             {futureImprovements.heading}
           </h2>
-          <p className="mt-4 max-w-[544px] text-base leading-6 text-muted">
+          <p className="mt-4 max-w-[544px] text-base leading-6 text-muted md:text-[24px]">
             {futureImprovements.caption}
           </p>
         </div>
