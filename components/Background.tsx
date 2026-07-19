@@ -9,7 +9,7 @@ export default function Background() {
       className="relative overflow-hidden bg-panel px-6 py-24 md:px-10 md:py-40"
     >
       {/* Full-section app-launcher image at 15% opacity. object-contain keeps
-          the whole image visible — nothing is cropped. */}
+          the whole image visible - nothing is cropped. */}
       <Image
         src={background.image.src}
         alt={background.image.alt}

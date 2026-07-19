@@ -6,7 +6,7 @@ import { useState } from "react";
 /**
  * Renders a real image from /public when the file exists; until the
  * asset is supplied, it falls back to a clearly-labeled gray
- * placeholder showing the expected filename — nothing is invented.
+ * placeholder showing the expected filename - nothing is invented.
  */
 export default function Asset({
   src,

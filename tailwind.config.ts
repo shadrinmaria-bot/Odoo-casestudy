@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 /**
- * Design tokens — matched to the live Wix Studio site (dark theme with a
+ * Design tokens - matched to the live Wix Studio site (dark theme with a
  * mint-green accent), read from reference screenshots. Adjust the hex
  * values here to fine-tune; every component reads from these tokens.
  */

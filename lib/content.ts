@@ -1,7 +1,7 @@
 /**
  * All page copy and asset references live in this single file.
  *
- * PROVENANCE NOTE — the live Wix site could not be fetched from the build
+ * PROVENANCE NOTE - the live Wix site could not be fetched from the build
  * environment. Copy marked "(verbatim)" is confirmed from the reference
  * screenshots the client supplied; copy marked "DRAFT" is written to match
  * the case-study narrative and should be replaced with the exact wording
@@ -9,7 +9,7 @@
  */
 
 export const meta = {
-  title: "Odoo Manufacturing — Safety Case Study",
+  title: "Odoo Manufacturing - Safety Case Study",
   description:
     "A safety management feature built into Odoo Manufacturing. UX case study.",
 };
@@ -17,7 +17,7 @@ export const meta = {
 export const hero = {
   projectMeta: [
     { label: "Platform", value: "Desktop Web Application" },
-    { label: "Type", value: "Feature Extension — Odoo ERP" },
+    { label: "Type", value: "Feature Extension - Odoo ERP" },
     { label: "Role", value: "Research · UX · Visual Design · Prototype" },
     { label: "Context", value: "Academic Project" },
   ],
@@ -262,7 +262,7 @@ export const reportView = {
   heading: "Submitted Incident Report View",
   // DRAFT intro
   intro:
-    "Once submitted, a report is read far more often than it is written — by managers, safety officers and auditors. The redesign reorganizes it around the reader.",
+    "Once submitted, a report is read far more often than it is written - by managers, safety officers and auditors. The redesign reorganizes it around the reader.",
   before: {
     src: "/images/submitted-report-before.png",
     alt: "The original submitted report: reporter name at the top, form-order fields",
@@ -276,7 +276,7 @@ export const reportView = {
     height: 1302,
   } satisfies ShowcaseImage,
   // DRAFT
-  body: "The original view led with the reporter's name and mirrored the form's input order. The redesign leads with what happened and how severe it was, groups the incident detail together, and moves the reporter into supporting metadata — keeping the focus on the incident, not the person.",
+  body: "The original view led with the reporter's name and mirrored the form's input order. The redesign leads with what happened and how severe it was, groups the incident detail together, and moves the reporter into supporting metadata - keeping the focus on the incident, not the person.",
 };
 
 export const futureImprovements = {

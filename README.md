@@ -1,11 +1,11 @@
-# Odoo Manufacturing — Safety Case Study
+# Odoo Manufacturing - Safety Case Study
 
 A single-page case study site rebuilt from the original Wix Studio site
 (`amitzadik.wixstudio.com/odoo-manufacturing`) as a Next.js (App Router) +
 TypeScript + Tailwind CSS app, ready to deploy on Vercel.
 
 Dark theme with a mint-green accent, a full-bleed hero image, and
-scroll-triggered animations — matched to the live site.
+scroll-triggered animations - matched to the live site.
 
 ## Run locally
 
@@ -20,14 +20,14 @@ npm run build      # production build
 Either:
 
 - `npx vercel` from the project root (follow the prompts), or
-- push this repo to GitHub and import it at vercel.com/new — no extra
+- push this repo to GitHub and import it at vercel.com/new - no extra
   configuration needed; Vercel auto-detects Next.js.
 
 ## Where things live
 
 | What | Where |
 | --- | --- |
-| **All page copy & asset paths** | `lib/content.ts` — one file, edit freely |
+| **All page copy & asset paths** | `lib/content.ts` - one file, edit freely |
 | Design tokens (dark palette, mint accent, radii) | `tailwind.config.ts` |
 | Font (Hanken Grotesk, a Wix-Madefor stand-in) | `app/layout.tsx` |
 | Page section order | `app/page.tsx` |
@@ -40,27 +40,27 @@ Either:
 The client-supplied images and videos are wired in under clean semantic
 filenames in `public/`:
 
-**Images** — `hero-background.jpg`, `odoo-apps-home.png`,
+**Images** - `hero-background.jpg`, `odoo-apps-home.png`,
 `manufacturing-overview.png`, `problem-reporting-menu.png`,
 `solution-reporting-safety.png`, `incident-badge-states.svg`,
 `work-center-zero-incidents.png`, `incident-report-form.png`,
 `submitted-report-before.png`, `submitted-report-after.png`,
 `persona-worker.png`.
 
-**Videos** — `incident-reporting.mp4`, `incident-tracking.mp4`,
+**Videos** - `incident-reporting.mp4`, `incident-tracking.mp4`,
 `safety-analytics.mp4` (the three feature demos).
 
 Any image/video component falls back to a labeled placeholder if a file is
-missing, so swapping or adding assets never breaks the layout — just drop a
+missing, so swapping or adding assets never breaks the layout - just drop a
 file into `public/` matching the path in `lib/content.ts`.
 
-**Still needed:** `public/videos/future-improvements.mp4` — the demo for
+**Still needed:** `public/videos/future-improvements.mp4` - the demo for
 the "Needs Attention" future-improvements section. It shows a labeled
 placeholder until you drop the file in.
 
 The cyan highlight rectangles for the Problem screenshots are positioned as
 percentages in the `problem.shots[].highlight` values in `lib/content.ts`
-— nudge them if a screenshot's crop differs. The incident badges in the
+- nudge them if a screenshot's crop differs. The incident badges in the
 Design Decisions section are rendered in CSS (`components/Badge.tsx`), not
 images. The feature demo videos already contain their own laptop mockup and
 captions, so those sections just position the video left/right
@@ -76,21 +76,21 @@ iterations are rendered as live CSS badges (before → after), not images.
 
 ## Assumptions to verify
 
-- **Video order** — the three demos are mapped to Incident Reporting /
+- **Video order** - the three demos are mapped to Incident Reporting /
   Incident Tracking / Safety Analytics in numbered order (01/02/03). If the
   client's intended order differs, swap the `src` values in the `features`
   block of `lib/content.ts`.
 - **Copy marked `DRAFT`** in `lib/content.ts` (Background paragraph, root
   causes, persona quote/lists, feature blurbs, design-decision points, stat
-  source) is written to match the case-study narrative — replace with the
+  source) is written to match the case-study narrative - replace with the
   exact wording from the live site. Copy marked `(verbatim)` is confirmed
   from the reference screenshots.
-- **Font** — Hanken Grotesk approximates Wix Madefor (not on Google Fonts).
+- **Font** - Hanken Grotesk approximates Wix Madefor (not on Google Fonts).
   Self-host the real Madefor files and update `app/layout.tsx` for an exact
   match.
 - **Accent hex** (`#5FE0B0`) and the dark palette live in
-  `tailwind.config.ts` — fine-tune there if needed.
-- **Wix badge** — replaced with a small footer credit; edit or delete
+  `tailwind.config.ts` - fine-tune there if needed.
+- **Wix badge** - replaced with a small footer credit; edit or delete
   `footer.credit` in `lib/content.ts` to change or remove it.
 
 ## Unused uploads

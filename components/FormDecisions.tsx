@@ -68,7 +68,7 @@ export default function FormDecisions() {
             {formDecisions.annotations.map((annotation) => (
               <li key={annotation.title}>
                 <h3 className="font-display text-2xl font-semibold leading-8 tracking-[-0.6px]">
-                  <span className="mr-3 text-accent">—</span>
+                  <span className="mr-3 text-accent">-</span>
                   {annotation.title}
                 </h3>
                 <p className="mt-2 max-w-[540px] pl-8 text-base leading-6 text-muted">

@@ -57,7 +57,7 @@ export function ZeroIncidentBadge() {
   );
 }
 
-/** The rounded grey warning triangle — the new hover-only state. */
+/** The rounded grey warning triangle - the new hover-only state. */
 export function WarningTriangle() {
   return (
     <svg viewBox="0 0 120 108" className="h-24 w-24" aria-hidden>
